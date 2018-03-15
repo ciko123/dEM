@@ -7,53 +7,147 @@
     android:background="@color/bg_page"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="20dp"
     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:text="锅炉云平台"
         android:textColor="@color/white"
         android:textSize="20sp"
         />
 
-    <android.support.v7.widget.CardView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_height="410dp"
         android:layout_marginTop="50dp"
-        android:background="@color/white"
-        card_view:contentPadding="16dp"
         >
 
-        <RelativeLayout
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            card_view:contentPadding="16dp"
             >
 
-            <TextView
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="还没注册过？"
-                android:textColor="#333333"
-                android:textSize="14sp"
-                />
+                >
 
-            <TextView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="还没注册过？"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="注册"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:layout_gravity="bottom"
+            android:elevation="10dp"
+            card_view:cardElevation="10dp"
+            card_view:contentPadding="20dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="注册"
-                android:textColor="#333333"
-                android:textSize="16sp"
-                />
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                >
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="登录"
+                    android:textColor="#393E4E"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    />
 
-        </RelativeLayout>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="账号"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    android:textSize="16sp"
+                    />
 
-    </android.support.v7.widget.CardView>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="密码"
+                    android:textSize="16sp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="验证码"
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_rect_round_line_blue"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingTop="6dp"
+                        android:text="获取验证码"
+                        android:textColor="#3F9AF8"
+                        android:textSize="14sp"
+                        />
+
+                </LinearLayout>
+
+                <Button
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/btn_rect_round_blue"
+                    android:text="登录"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </FrameLayout>
+
 
 </LinearLayout>
