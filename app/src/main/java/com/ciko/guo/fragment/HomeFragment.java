@@ -30,4 +30,5 @@ public class HomeFragment extends BaseFragment{
     protected void initData() {
 
     }
+
 }

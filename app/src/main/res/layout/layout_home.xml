@@ -8,13 +8,11 @@
     >
 
     <FrameLayout
+        android:id="@+id/flContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        >
-
-
-    </FrameLayout>
+        />
 
     <View
         android:layout_width="match_parent"
@@ -32,8 +30,8 @@
         android:weightSum="4"
         >
 
-
         <LinearLayout
+            android:id="@+id/viewHomeTag"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -42,12 +40,14 @@
             >
 
             <ImageView
+                android:id="@+id/ivHomeIcon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_home_pressed"
                 />
 
             <TextView
+                android:id="@+id/tvHomeTag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -59,6 +59,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/viewDriversTag"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -67,12 +68,14 @@
             >
 
             <ImageView
+                android:id="@+id/ivDriversIcon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_drivers"
                 />
 
             <TextView
+                android:id="@+id/tvDriversTag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -84,6 +87,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/viewSaleServerTag"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -92,12 +96,14 @@
             >
 
             <ImageView
+                android:id="@+id/ivSaleServerIcon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_sale_server"
                 />
 
             <TextView
+                android:id="@+id/tvSaleServerTag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -109,6 +115,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/viewUserCenterTag"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -117,12 +124,14 @@
             >
 
             <ImageView
+                android:id="@+id/ivUserCenterIcon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_user_center"
                 />
 
             <TextView
+                android:id="@+id/tvUserCenterTag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -132,7 +141,6 @@
                 />
 
         </LinearLayout>
-
 
     </LinearLayout>
 

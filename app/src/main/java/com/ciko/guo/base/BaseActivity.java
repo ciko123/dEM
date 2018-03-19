@@ -1,10 +1,10 @@
 package com.ciko.guo.base;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 /**
  * 创建时间: 2018/3/19 上午1:16
@@ -35,6 +35,11 @@ public abstract class BaseActivity extends Activity {
         return this;
     }
 
+
+    public <T extends View> T findView(int id) {
+        return (T) findViewById(id);
+    }
+
     protected void intent2Activity(Class<?> cls) {
         Intent intent = new Intent(this, cls);
         startActivity(intent);
@@ -44,7 +49,6 @@ public abstract class BaseActivity extends Activity {
         intent2Activity(cls);
         finish();
     }
-
 
 
 }
