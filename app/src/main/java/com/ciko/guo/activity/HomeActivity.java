@@ -50,7 +50,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    protected void findView() {
+    protected void initView() {
         viewHomeTag = findView(R.id.viewHomeTag);
         viewDriversTag = findView(R.id.viewDriversTag);
         viewSaleServerTag = findView(R.id.viewSaleServerTag);

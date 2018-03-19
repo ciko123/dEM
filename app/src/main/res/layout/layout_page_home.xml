@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="服务提醒"
+                android:text="在线咨询"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 />
@@ -127,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="服务提醒"
+                android:text="单号查询"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 />

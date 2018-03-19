@@ -17,7 +17,7 @@ public class MessageActivity extends BaseActivity{
     }
 
     @Override
-    protected void findView() {
+    protected void initView() {
 
     }
 

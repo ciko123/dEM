@@ -17,7 +17,7 @@ public class CompanyMobilePhoneActivity extends BaseActivity{
     }
 
     @Override
-    protected void findView() {
+    protected void initView() {
 
     }
 

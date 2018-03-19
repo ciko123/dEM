@@ -17,7 +17,7 @@ public class CodeSearchActivity extends BaseActivity{
     }
 
     @Override
-    protected void findView() {
+    protected void initView() {
 
     }
 

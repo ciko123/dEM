@@ -28,6 +28,9 @@
 
         <!--<activity android:name=".activity.RegisterSuccessActivity" />-->
         <!--<activity android:name=".activity.HomeActivity" />-->
+        <activity android:name=".activity.DriversWarmActivity" />
+        <activity android:name=".activity.ServerTipActivity" />
+        <activity android:name=".activity.CodeSearchActivity" />
 
     </application>
 

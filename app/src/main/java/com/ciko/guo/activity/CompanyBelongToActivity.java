@@ -17,7 +17,7 @@ public class CompanyBelongToActivity extends BaseActivity{
     }
 
     @Override
-    protected void findView() {
+    protected void initView() {
 
     }
 

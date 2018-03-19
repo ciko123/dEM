@@ -1,7 +1,7 @@
 package com.ciko.guo.activity;
 
 import com.ciko.guo.R;
-import com.ciko.guo.base.BaseActivity;
+import com.ciko.guo.base.TitleActivity;
 
 /**
  * 创建时间: 2018/3/19 上午3:14
@@ -9,15 +9,20 @@ import com.ciko.guo.base.BaseActivity;
  *
  * @author 木棉
  */
-public class DriversWarmActivity extends BaseActivity{
+public class DriversWarmActivity extends TitleActivity {
 
     @Override
-    protected int getLayoutResId() {
+    protected int getContentLayoutResId() {
         return R.layout.layout_drivers_warm;
     }
 
     @Override
-    protected void findView() {
+    protected String getTitleName() {
+        return "报警信息";
+    }
+
+    @Override
+    protected void initView() {
 
     }
 

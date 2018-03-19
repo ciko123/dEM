@@ -17,7 +17,7 @@ public class UserPswActivity extends BaseActivity{
     }
 
     @Override
-    protected void findView() {
+    protected void initView() {
 
     }
 

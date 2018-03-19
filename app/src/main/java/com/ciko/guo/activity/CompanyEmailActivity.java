@@ -17,7 +17,7 @@ public class CompanyEmailActivity extends BaseActivity{
     }
 
     @Override
-    protected void findView() {
+    protected void initView() {
 
     }
 

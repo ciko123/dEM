@@ -19,7 +19,7 @@ public class CompanyTaxFileNumberActivity extends BaseActivity{
     }
 
     @Override
-    protected void findView() {
+    protected void initView() {
 
     }
 

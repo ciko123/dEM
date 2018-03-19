@@ -17,7 +17,7 @@ public class UserNameActivity extends BaseActivity{
     }
 
     @Override
-    protected void findView() {
+    protected void initView() {
 
     }
 

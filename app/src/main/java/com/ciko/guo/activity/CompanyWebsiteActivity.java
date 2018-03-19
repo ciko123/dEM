@@ -17,7 +17,7 @@ public class CompanyWebsiteActivity extends BaseActivity{
     }
 
     @Override
-    protected void findView() {
+    protected void initView() {
 
     }
 

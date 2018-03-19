@@ -18,14 +18,14 @@ public abstract class BaseActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
-        findView();
+        initView();
         setListener();
         initData();
     }
 
     abstract protected int getLayoutResId();
 
-    abstract protected void findView();
+    abstract protected void initView();
 
     abstract protected void setListener();
 

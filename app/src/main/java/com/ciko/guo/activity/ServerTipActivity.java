@@ -17,7 +17,7 @@ public class ServerTipActivity extends BaseActivity{
     }
 
     @Override
-    protected void findView() {
+    protected void initView() {
 
     }
 
