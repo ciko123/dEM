@@ -1,7 +1,7 @@
 package com.ciko.guo.activity;
 
 import com.ciko.guo.R;
-import com.ciko.guo.base.BaseActivity;
+import com.ciko.guo.base.TitleActivity;
 
 /**
  * 创建时间: 2018/3/19 上午3:22
@@ -9,16 +9,16 @@ import com.ciko.guo.base.BaseActivity;
  *
  * @author 木棉
  */
-public class ServerTipActivity extends BaseActivity{
+public class ServerTipActivity extends TitleActivity {
 
     @Override
-    protected int getLayoutResId() {
+    protected int getContentLayoutResId() {
         return R.layout.layout_server_tip;
     }
 
     @Override
-    protected void initView() {
-
+    protected String getTitleName() {
+        return "服务提醒";
     }
 
     @Override

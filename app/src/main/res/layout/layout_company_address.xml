@@ -3,7 +3,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/page_bg"
     android:orientation="vertical"
     >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        >
+
+        <EditText
+            style="@style/et"
+            android:layout_gravity="center"
+            android:hint="输入公司地址"
+            android:inputType="number"
+            />
+
+    </FrameLayout>
 
 </LinearLayout>
