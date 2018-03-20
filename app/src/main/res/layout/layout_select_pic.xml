@@ -14,24 +14,13 @@
         android:orientation="vertical"
         >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@color/white"
-            android:gravity="center"
-            android:text="请选择性别"
-            android:textColor="#FF999999"
-            android:textSize="14dp"
-            />
-
-        <View style="@style/driver_h" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@color/white"
             android:gravity="center"
-            android:text="男"
+            android:text="拍照"
             android:textColor="#FF333333"
             android:textSize="14sp"
             />
@@ -43,7 +32,7 @@
             android:layout_height="40dp"
             android:background="@color/white"
             android:gravity="center"
-            android:text="女"
+            android:text="从手机相册选择"
             android:textColor="#FF333333"
             android:textSize="14sp"
             />

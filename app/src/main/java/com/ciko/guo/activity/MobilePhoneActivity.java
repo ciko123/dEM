@@ -5,20 +5,20 @@ import com.ciko.guo.base.TitleActivity;
 
 /**
  * 创建时间: 2018/3/19 上午3:23
- * 类描述: 设置所属于企业
+ * 类描述: 设置手机号
  *
  * @author 木棉
  */
-public class CompanyBelongToActivity extends TitleActivity {
+public class MobilePhoneActivity extends TitleActivity {
 
     @Override
     protected int getContentLayoutResId() {
-        return R.layout.layout_company_belong_to;
+        return R.layout.layout_mobile_phone;
     }
 
     @Override
     protected String getTitleName() {
-        return "设置所属于企业";
+        return "设置手机号";
     }
 
     @Override
@@ -30,4 +30,5 @@ public class CompanyBelongToActivity extends TitleActivity {
     protected void initData() {
 
     }
+
 }

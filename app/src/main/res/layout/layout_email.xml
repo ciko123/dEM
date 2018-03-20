@@ -18,7 +18,8 @@
         <EditText
             style="@style/et"
             android:layout_gravity="center"
-            android:hint="企业名称"
+            android:hint="设置邮箱"
+            android:inputType="number"
             />
 
     </FrameLayout>
