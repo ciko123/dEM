@@ -17,7 +17,7 @@ public class UserCenterFragment extends BaseFragment{
     }
 
     @Override
-    protected void findView() {
+    protected void initView() {
 
     }
 

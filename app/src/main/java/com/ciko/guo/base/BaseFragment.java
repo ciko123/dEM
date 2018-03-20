@@ -27,14 +27,18 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        findView();
+        initView();
         setListener();
         initData();
     }
 
+    public <T extends View> T findView(int id) {
+        return (T) rootView.findViewById(id);
+    }
+
     abstract protected int getLayoutResId();
 
-    abstract protected void findView();
+    abstract protected void initView();
 
     abstract protected void setListener();
 

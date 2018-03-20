@@ -11,11 +11,11 @@
         android:theme="@style/AppTheme">
 
         <!--<activity android:name=".activity.LoginActivity">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+        <!--<category android:name="android.intent.category.LAUNCHER" />-->
+        <!--</intent-filter>-->
         <!--</activity>-->
 
         <activity android:name=".activity.HomeActivity">
@@ -28,9 +28,13 @@
 
         <!--<activity android:name=".activity.RegisterSuccessActivity" />-->
         <!--<activity android:name=".activity.HomeActivity" />-->
-        <activity android:name=".activity.DriversWarmActivity" />
-        <activity android:name=".activity.ServerTipActivity" />
-        <activity android:name=".activity.CodeSearchActivity" />
+        <!--<activity android:name=".activity.WarmInfoActivity" />-->
+        <!--<activity android:name=".activity.DriverDetailActivity" />-->
+        <!--<activity android:name=".activity.ServerTipActivity" />-->
+        <!--<activity android:name=".activity.CodeSearchActivity" />-->
+        <activity android:name=".activity.AddDriverActivity" />
+        <activity android:name=".activity.ChatOnlineActivity" />
+        <activity android:name=".activity.NewChatActivity" />
 
     </application>
 

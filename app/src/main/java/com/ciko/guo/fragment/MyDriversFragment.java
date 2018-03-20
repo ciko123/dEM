@@ -17,7 +17,7 @@ public class MyDriversFragment extends BaseFragment{
     }
 
     @Override
-    protected void findView() {
+    protected void initView() {
 
     }
 

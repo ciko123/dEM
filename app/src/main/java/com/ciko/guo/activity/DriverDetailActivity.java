@@ -1,7 +1,7 @@
 package com.ciko.guo.activity;
 
 import com.ciko.guo.R;
-import com.ciko.guo.base.BaseActivity;
+import com.ciko.guo.base.TitleActivity;
 
 /**
  * 创建时间: 2018/3/19 上午3:15
@@ -9,16 +9,16 @@ import com.ciko.guo.base.BaseActivity;
  *
  * @author 木棉
  */
-public class DriverDetailActivity extends BaseActivity{
+public class DriverDetailActivity extends TitleActivity {
 
     @Override
-    protected int getLayoutResId() {
+    protected int getContentLayoutResId() {
         return R.layout.layout_driver_detail;
     }
 
     @Override
-    protected void initView() {
-
+    protected String getTitleName() {
+        return "设备详情";
     }
 
     @Override

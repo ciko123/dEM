@@ -1,9 +1,8 @@
 package com.ciko.guo.base;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.ciko.guo.R;
 
@@ -17,20 +16,21 @@ public abstract class TitleActivity extends BaseActivity {
 
     private View viewBackTitleActivity;
 
+    private View contentView;
+
+    private TextView tvTitleBar;
+
     private FrameLayout frameLayout;
-
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     protected void initView() {
         viewBackTitleActivity = findView(R.id.viewBackTitleActivity);
-
+        tvTitleBar = findView(R.id.tvTitleBar);
         frameLayout = findView(R.id.rootViewTitleActivity);
-        frameLayout.addView(getLayoutInflater().inflate(getContentLayoutResId(), null));
+
+        contentView = getLayoutInflater().inflate(getContentLayoutResId(), null);
+        tvTitleBar.setText(getTitleName());
+        frameLayout.addView(contentView);
 
         viewBackTitleActivity.setOnClickListener(new View.OnClickListener() {
             @Override

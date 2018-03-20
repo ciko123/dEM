@@ -4,26 +4,21 @@ import com.ciko.guo.R;
 import com.ciko.guo.base.TitleActivity;
 
 /**
- * 创建时间: 2018/3/19 上午3:14
- * 类描述:
+ * 创建时间: 2018/3/19 上午3:20
+ * 类描述: 新咨询
  *
  * @author 木棉
  */
-public class DriversWarmActivity extends TitleActivity {
+public class NewChatActivity extends TitleActivity {
 
     @Override
     protected int getContentLayoutResId() {
-        return R.layout.layout_drivers_warm;
+        return R.layout.layout_new_question;
     }
 
     @Override
     protected String getTitleName() {
-        return "报警信息";
-    }
-
-    @Override
-    protected void initView() {
-
+        return "新咨询";
     }
 
     @Override
@@ -35,4 +30,6 @@ public class DriversWarmActivity extends TitleActivity {
     protected void initData() {
 
     }
+
+
 }

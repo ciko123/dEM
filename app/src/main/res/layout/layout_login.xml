@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="410dp"
             android:layout_marginTop="30dp"
-            android:visibility="gone"
+            android:visibility="visible"
             >
 
             <android.support.v7.widget.CardView
@@ -91,22 +91,16 @@
                         />
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        style="@style/et"
                         android:layout_marginTop="20dp"
                         android:hint="账号"
-                        android:textColor="#333333"
-                        android:textColorHint="#999999"
-                        android:textSize="15sp"
                         />
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        style="@style/et"
                         android:layout_marginTop="10dp"
                         android:hint="密码"
                         android:inputType="textPassword"
-                        android:textSize="15sp"
                         />
 
                     <LinearLayout
@@ -117,11 +111,10 @@
                         >
 
                         <EditText
+                            style="@style/et"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:hint="验证码"
-                            android:textSize="15sp"
                             />
 
                         <TextView
@@ -161,7 +154,7 @@
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:layout_marginTop="30dp"
-            android:visibility="visible"
+            android:visibility="gone"
             >
 
             <android.support.v7.widget.CardView
@@ -229,43 +222,31 @@
                         />
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        style="@style/et"
                         android:layout_marginTop="10dp"
                         android:hint="公司名称"
-                        android:textColor="#333333"
-                        android:textColorHint="#999999"
-                        android:textSize="15sp"
                         />
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        style="@style/et"
                         android:hint="姓名"
-                        android:textSize="15sp"
                         />
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        style="@style/et"
                         android:hint="账号：手机号"
-                        android:textSize="15sp"
                         />
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        style="@style/et"
                         android:hint="密码"
                         android:inputType="textPassword"
-                        android:textSize="15sp"
                         />
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        style="@style/et"
                         android:hint="确认密码"
                         android:inputType="textPassword"
-                        android:textSize="15sp"
                         />
 
                     <LinearLayout
@@ -275,11 +256,10 @@
                         >
 
                         <EditText
+                            style="@style/et"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:hint="验证码"
-                            android:textSize="15sp"
                             />
 
                         <TextView
