@@ -1,7 +1,6 @@
 package com.ciko.guo.activity;
 
 import android.graphics.Color;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +15,7 @@ import com.ciko.guo.utils.FragmentUtils;
 
 /**
  * 创建时间: 2018/3/19 上午1:30
- * 类描述:
+ * 类描述: 主页
  *
  * @author 木棉
  */
@@ -151,8 +150,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) and run LayoutCreator again
+    public void onBackPressed() {
+        // Do Nothing
     }
+
 }
