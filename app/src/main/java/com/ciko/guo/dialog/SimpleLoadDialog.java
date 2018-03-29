@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.Window;
 
 import com.ciko.guo.R;
-import com.ciko.guo.http.ProgressCancelListener;
+import com.ciko.guo.http.core.ProgressCancelListener;
 
 import java.lang.ref.WeakReference;
 

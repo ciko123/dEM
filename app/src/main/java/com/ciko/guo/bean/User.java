@@ -6,7 +6,7 @@ package com.ciko.guo.bean;
  *
  * @author Ciko
  */
-public class UserDetail {
+public class User {
 
     /**
      * account : hyyyy

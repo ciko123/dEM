@@ -91,16 +91,20 @@
                         />
 
                     <EditText
+                        android:id="@+id/etPhoneLogin"
                         style="@style/et"
                         android:layout_marginTop="20dp"
                         android:hint="账号"
+                        android:text="13578902378"
                         />
 
                     <EditText
+                        android:id="@+id/etPswLogin"
                         style="@style/et"
                         android:layout_marginTop="10dp"
                         android:hint="密码"
                         android:inputType="textPassword"
+                        android:text="123456"
                         />
 
                     <LinearLayout
@@ -111,10 +115,12 @@
                         >
 
                         <EditText
+                            android:id="@+id/etCodeLogin"
                             style="@style/et"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:hint="验证码"
+                            android:text="1234"
                             />
 
                         <TextView

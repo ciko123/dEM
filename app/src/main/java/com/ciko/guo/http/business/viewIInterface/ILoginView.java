@@ -1,4 +1,4 @@
-package com.ciko.guo.http.viewIInterface;
+package com.ciko.guo.http.business.viewIInterface;
 
 import com.ciko.guo.bean.UserLogin;
 
@@ -10,6 +10,6 @@ import com.ciko.guo.bean.UserLogin;
  */
 public interface ILoginView {
 
-    void loginResult(UserLogin userLogin);
+    void postUserLoginResult(UserLogin userLogin);
 
 }

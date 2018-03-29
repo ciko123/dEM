@@ -1,5 +1,7 @@
-package com.ciko.guo.http;
+package com.ciko.guo.http.business.config;
 
+
+import com.ciko.guo.BuildConfig;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -8,6 +10,7 @@ import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -26,16 +29,23 @@ public class Api {
             //手动创建一个OkHttpClient并设置超时时间
             OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
             httpClientBuilder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+
+            HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+            httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            httpClientBuilder.addInterceptor(httpLoggingInterceptor);
+
             httpClientBuilder.addInterceptor(new Interceptor() {
                 @Override
                 public okhttp3.Response intercept(Chain chain) throws IOException {
                     Request request = chain.request();
-
                     HttpUrl.Builder authorizedUrlBuilder = request.url()
                             .newBuilder()
                             //添加统一参数 如手机唯一标识符,token等
-                            .addQueryParameter("timeStamp", System.currentTimeMillis() + "");
-//                            .addQueryParameter("cid", "value2");
+                            .addQueryParameter("accountName", "13578902378")
+                            .addQueryParameter("accountType", "android")
+                            .addQueryParameter("clientType", BuildConfig.VERSION_NAME)
+                            .addQueryParameter("timeStamp", System.currentTimeMillis() + "")
+                            .addQueryParameter("cid", "value2");
 
                     Request newRequest = request.newBuilder()
                             //对所有请求添加请求头
@@ -47,6 +57,9 @@ public class Api {
                     return chain.proceed(newRequest);
                 }
             });
+
+
+
 
             SERVICE = new Retrofit.Builder()
                     .client(httpClientBuilder.build())

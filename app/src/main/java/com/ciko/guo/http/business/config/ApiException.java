@@ -1,4 +1,4 @@
-package com.ciko.guo.http;
+package com.ciko.guo.http.business.config;
 
 public class ApiException extends RuntimeException {
 

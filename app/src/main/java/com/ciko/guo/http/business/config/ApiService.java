@@ -1,9 +1,13 @@
-package com.ciko.guo.http;
+package com.ciko.guo.http.business.config;
 
 
+import com.ciko.guo.bean.UserLogin;
 import com.ciko.guo.enity.HttpResult;
 import com.ciko.guo.enity.UserEntity;
 
+import java.util.List;
+
+import okhttp3.ResponseBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
@@ -14,14 +18,12 @@ public interface ApiService {
     /**
      * 登录
      *
-     * @param account     用户名
-     * @param password    密码
-     * @param accountType 账号类型
-     * @param clientType  客户端类型
+     * @param account  用户名
+     * @param password 密码
      */
     @FormUrlEncoded
     @POST(Url.USER_LOGIN)
-    Observable<HttpResult<UserEntity>> login(@Field("account") String account, @Field("password") String password, @Field("accountType") String accountType, @Field("clientType") String clientType);
+    Observable<HttpResult<UserLogin>> login(@Field("account") String account, @Field("password") String password);
 
 
     /**
@@ -89,7 +91,7 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST(Url.QRY_DEVICE_LIST)
-    Observable<HttpResult<UserEntity>> qryDeviceList(@Field("userId") int userId, @Field("title") String title, @Field("status") String status);
+    Observable<ResponseBody> qryDeviceList(@Field("userId") int userId, @Field("isAppShow") String isAppShow, @Field("yema") int yema, @Field("length") int length, @Field("name") String name);
 
     /**
      * 编辑设备

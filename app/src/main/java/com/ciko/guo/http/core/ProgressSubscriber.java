@@ -1,9 +1,10 @@
-package com.ciko.guo.http;
+package com.ciko.guo.http.core;
 
 
 import android.content.Context;
 
 import com.ciko.guo.dialog.SimpleLoadDialog;
+import com.ciko.guo.http.business.config.ApiException;
 import com.ciko.guo.utils.ContextUtils;
 import com.ciko.guo.utils.NetWorkUtils;
 
@@ -56,7 +57,7 @@ public abstract class ProgressSubscriber<T> extends Subscriber<T> implements Pro
     @Override
     public void onError(Throwable e) {
         e.printStackTrace();
-        if (NetWorkUtils.isNetWorkAvailable(ContextUtils.getContext())) { //这里自行替换判断网络的代码
+        if (!NetWorkUtils.isNetWorkAvailable(ContextUtils.getContext())) {
             _onError("网络不可用");
         } else if (e instanceof ApiException) {
             _onError(e.getMessage());

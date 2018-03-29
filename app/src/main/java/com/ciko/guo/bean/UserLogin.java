@@ -71,4 +71,16 @@ public class UserLogin {
     public void setLast_login_time(String last_login_time) {
         this.last_login_time = last_login_time;
     }
+
+    @Override
+    public String toString() {
+        return "UserLogin{" +
+                "uid='" + uid + '\'' +
+                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", groupid=" + groupid +
+                ", reg_time='" + reg_time + '\'' +
+                ", last_login_time='" + last_login_time + '\'' +
+                '}';
+    }
 }

@@ -1,11 +1,11 @@
-package com.ciko.guo.http;
+package com.ciko.guo.http.business.config;
 
 public interface Url {
 
     /**
      * 请求地址
      */
-    String BASE_URL = "https://api.douban.com/v2/movie/";
+    String BASE_URL = "http://47.95.3.231:8090/boilerCloudAPI/";
 
     /**
      * 登录

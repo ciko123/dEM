@@ -1,4 +1,4 @@
-package com.ciko.guo.http;
+package com.ciko.guo.http.core;
 
 
 import com.ciko.guo.base.ActivityLifeCycleEvent;

@@ -1,4 +1,4 @@
-package com.ciko.guo.http;
+package com.ciko.guo.http.core;
 
 import com.orhanobut.hawk.Hawk;
 
@@ -17,15 +17,12 @@ public class RetrofitCache {
      * @param <T>
      * @return
      */
-    public static <T> Observable<T> load(final String cacheKey,
-                                         Observable<T> fromNetwork,
-                                         boolean isSave, boolean forceRefresh) {
+    public static <T> Observable<T> load(final String cacheKey, Observable<T> fromNetwork, boolean isSave, boolean forceRefresh) {
+
         Observable<T> fromCache = Observable.create(new Observable.OnSubscribe<T>() {
             @Override
             public void call(Subscriber<? super T> subscriber) {
-
-
-                T cache = (T) Hawk.get(cacheKey);
+                T cache = Hawk.get(cacheKey);
                 if (cache != null) {
                     subscriber.onNext(cache);
                 } else {
@@ -33,6 +30,7 @@ public class RetrofitCache {
                 }
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+
         //是否缓存
         if (isSave) {
             /**
@@ -46,6 +44,7 @@ public class RetrofitCache {
                 }
             });
         }
+
         //强制刷新
         if (forceRefresh) {
             return fromNetwork;

@@ -1,327 +1,76 @@
 package com.ciko.guo.utils;
 
-import android.util.Log;
 
-/**
- * This class can replace android.util.Log.
- *
- * @description And you can turn off the log by set DEBUG_LEVEL = Log.ASSERT.
- */
-public final class LogUtils {
+import com.google.gson.Gson;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.FormatStrategy;
+import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
 
-    /**
-     * Don't let anyone instantiate this class.
-     */
+public class LogUtils {
+
     private LogUtils() {
-        throw new Error("Do not need instantiate!");
     }
 
-    /**
-     * Master switch.To catch error info you need set this value below Log.WARN
-     */
-    public static final int DEBUG_LEVEL = 0;
+    public static void init() {
+        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .showThreadInfo(true)  // (Optional) Whether to show thread info or not. Default true
+                .methodCount(2)         // (Optional) How many method line to show. Default 2
+                .methodOffset(5)        // (Optional) Hides internal method calls up to offset. Default 5
+//                .logStrategy(customLog) // (Optional) Changes the log strategy to print out. Default LogCat
+//                .tag("My custom tag")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
+                .build();
 
-    /**
-     * 'System.out' switch.When it is true, you can see the 'System.out' log.
-     * Otherwise, you cannot.
-     */
-    public static final boolean DEBUG_SYSOUT = false;
-
-    /**
-     * Send a {@link Log#VERBOSE} log message.
-     *
-     * @param obj
-     */
-    public static void v(Object obj) {
-        if (Log.VERBOSE > DEBUG_LEVEL) {
-            String tag = getClassName();
-            String msg = obj != null ? obj.toString() : "obj == null";
-            Log.v(tag, msg);
-        }
+        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
     }
 
-    /**
-     * Send a {@link #DEBUG_LEVEL} log message.
-     *
-     * @param obj
-     */
-    public static void d(Object obj) {
-        if (Log.DEBUG > DEBUG_LEVEL) {
-            String tag = getClassName();
-            String msg = obj != null ? obj.toString() : "obj == null";
-            Log.d(tag, msg);
-        }
+    public static void v(String logMsg) {
+        Logger.v(logMsg);
     }
 
-    /**
-     * Send an {@link Log#INFO} log message.
-     *
-     * @param obj
-     */
-    public static void i(Object obj) {
-        if (Log.INFO > DEBUG_LEVEL) {
-            String tag = getClassName();
-            String msg = obj != null ? obj.toString() : "obj == null";
-            Log.i(tag, msg);
-        }
+    public static void v(String tag, String logMsg) {
+        Logger.t(tag).v(logMsg);
     }
 
-    /**
-     * Send a {@link Log#WARN} log message.
-     *
-     * @param obj
-     */
-    public static void w(Object obj) {
-        if (Log.WARN > DEBUG_LEVEL) {
-            String tag = getClassName();
-            String msg = obj != null ? obj.toString() : "obj == null";
-            Log.w(tag, msg);
-        }
+    public static void w(String logMsg) {
+        Logger.w(logMsg);
     }
 
-    /**
-     * Send an {@link Log#ERROR} log message.
-     *
-     * @param obj
-     */
-    public static void e(Object obj) {
-        if (Log.ERROR > DEBUG_LEVEL) {
-            String tag = getClassName();
-            String msg = obj != null ? obj.toString() : "obj == null";
-            Log.e(tag, msg);
-        }
+    public static void w(String tag, String logMsg) {
+        Logger.t(tag).w(logMsg);
     }
 
-    /**
-     * What a Terrible Failure: Report a condition that should never happen. The
-     * error will always be logged at level ASSERT with the call stack.
-     * Depending on system configuration, a report may be added to the
-     * {@link android.os.DropBoxManager} and/or the process may be terminated
-     * immediately with an error dialog.
-     *
-     * @param obj
-     */
-    public static void wtf(Object obj) {
-        if (Log.ASSERT > DEBUG_LEVEL) {
-            String tag = getClassName();
-            String msg = obj != null ? obj.toString() : "obj == null";
-            Log.wtf(tag, msg);
-        }
+    public static void d(String logMsg) {
+        Logger.d(logMsg);
     }
 
-    /**
-     * Send a {@link Log#VERBOSE} log message.
-     *
-     * @param tag Used to identify the source of a log message. It usually
-     *            identifies the class or activity where the log call occurs.
-     * @param msg The message you would like logged.
-     */
-    public static void v(String tag, String msg) {
-        if (Log.VERBOSE > DEBUG_LEVEL) {
-            Log.v(tag, msg);
-        }
+    public static void d(String tag, String logMsg) {
+        Logger.t(tag).d(logMsg);
     }
 
-    /**
-     * Send a {@link #DEBUG_LEVEL} log message.
-     *
-     * @param tag Used to identify the source of a log message. It usually
-     *            identifies the class or activity where the log call occurs.
-     * @param msg The message you would like logged.
-     */
-    public static void d(String tag, String msg) {
-        if (Log.DEBUG > DEBUG_LEVEL) {
-            Log.d(tag, msg);
-        }
+    public static void e(String logMsg) {
+        Logger.e(logMsg);
     }
 
-    /**
-     * Send an {@link Log#INFO} log message.
-     *
-     * @param tag Used to identify the source of a log message. It usually
-     *            identifies the class or activity where the log call occurs.
-     * @param msg The message you would like logged.
-     */
-    public static void i(String tag, String msg) {
-        if (Log.INFO > DEBUG_LEVEL) {
-            Log.i(tag, msg);
-        }
+    public static void e(String tag, String logMsg) {
+        Logger.t(tag).e(logMsg);
     }
 
-    /**
-     * Send a {@link Log#WARN} log message.
-     *
-     * @param tag Used to identify the source of a log message. It usually
-     *            identifies the class or activity where the log call occurs.
-     * @param msg The message you would like logged.
-     */
-    public static void w(String tag, String msg) {
-        if (Log.WARN > DEBUG_LEVEL) {
-            Log.w(tag, msg);
-        }
+    public static void obj(Object object) {
+        Logger.json(new Gson().toJson(object));
     }
 
-    /**
-     * Send an {@link Log#ERROR} log message.
-     *
-     * @param tag Used to identify the source of a log message. It usually
-     *            identifies the class or activity where the log call occurs.
-     * @param msg The message you would like logged.
-     */
-    public static void e(String tag, String msg) {
-        if (Log.ERROR > DEBUG_LEVEL) {
-            Log.e(tag, msg);
-        }
+    public static void obj(String tag, Object object) {
+        Logger.t(tag).json(new Gson().toJson(object));
     }
 
-    /**
-     * What a Terrible Failure: Report a condition that should never happen. The
-     * error will always be logged at level ASSERT with the call stack.
-     * Depending on system configuration, a report may be added to the
-     * {@link android.os.DropBoxManager} and/or the process may be terminated
-     * immediately with an error dialog.
-     *
-     * @param tag Used to identify the source of a log message.
-     * @param msg The message you would like logged.
-     */
-    public static void wtf(String tag, String msg) {
-        if (Log.ASSERT > DEBUG_LEVEL) {
-            Log.wtf(tag, msg);
-        }
+    public static void json(String json) {
+        Logger.json(json);
     }
 
-    /**
-     * Send a {@link Log#VERBOSE} log message. And just print method name and
-     * position in black.
-     */
-    public static void print() {
-        if (Log.VERBOSE > DEBUG_LEVEL) {
-            String tag = getClassName();
-            String method = callMethodAndLine();
-            Log.v(tag, method);
-            if (DEBUG_SYSOUT) {
-                System.out.println(tag + "  " + method);
-            }
-        }
+    public static void json(String tag, String json) {
+        Logger.t(tag).json(json);
     }
 
-    /**
-     * Send a {@link #DEBUG_LEVEL} log message.
-     *
-     * @param object The object to print.
-     */
-    public static void print(Object object) {
-        if (Log.DEBUG > DEBUG_LEVEL) {
-            String tag = getClassName();
-            String method = callMethodAndLine();
-            String content = "";
-            if (object != null) {
-                content = object.toString() + "                    ----    "
-                        + method;
-            } else {
-                content = " ## " + "                ----    " + method;
-            }
-            Log.d(tag, content);
-            if (DEBUG_SYSOUT) {
-                System.out.println(tag + "  " + content + "  " + method);
-            }
-        }
-    }
-
-    /**
-     * Send an {@link Log#ERROR} log message.
-     *
-     * @param object The object to print.
-     */
-    public static void printError(Object object) {
-        if (Log.ERROR > DEBUG_LEVEL) {
-            String tag = getClassName();
-            String method = callMethodAndLine();
-            String content = "";
-            if (object != null) {
-                content = object.toString() + "                    ----    "
-                        + method;
-            } else {
-                content = " ## " + "                    ----    " + method;
-            }
-            Log.e(tag, content);
-            if (DEBUG_SYSOUT) {
-                System.err.println(tag + "  " + method + "  " + content);
-            }
-        }
-    }
-
-    /**
-     * Print the array of stack trace elements of this method in black.
-     *
-     * @return
-     */
-    public static void printCallHierarchy() {
-        if (Log.VERBOSE > DEBUG_LEVEL) {
-            String tag = getClassName();
-            String method = callMethodAndLine();
-            String hierarchy = getCallHierarchy();
-            Log.v(tag, method + hierarchy);
-            if (DEBUG_SYSOUT) {
-                System.out.println(tag + "  " + method + hierarchy);
-            }
-        }
-    }
-
-    /**
-     * Print debug log in blue.
-     *
-     * @param object The object to print.
-     */
-    public static void printMyLog(Object object) {
-        if (Log.DEBUG > DEBUG_LEVEL) {
-            String tag = "MYLOG";
-            String method = callMethodAndLine();
-            String content = "";
-            if (object != null) {
-                content = object.toString() + "                    ----    "
-                        + method;
-            } else {
-                content = " ## " + "                ----    " + method;
-            }
-            Log.d(tag, content);
-            if (DEBUG_SYSOUT) {
-                System.out.println(tag + "  " + content + "  " + method);
-            }
-        }
-    }
-
-    private static String getCallHierarchy() {
-        String result = "";
-        StackTraceElement[] trace = (new Exception()).getStackTrace();
-        for (int i = 2; i < trace.length; i++) {
-            result += "\r\t" + trace[i].getClassName() + "."
-                    + trace[i].getMethodName() + "():"
-                    + trace[i].getLineNumber();
-        }
-        return result;
-    }
-
-    private static String getClassName() {
-        String result = "";
-        StackTraceElement thisMethodStack = (new Exception()).getStackTrace()[2];
-        result = thisMethodStack.getClassName();
-        return result;
-    }
-
-    /**
-     * Realization of double click jump events.
-     *
-     * @return
-     */
-    private static String callMethodAndLine() {
-        String result = "at ";
-        StackTraceElement thisMethodStack = (new Exception()).getStackTrace()[2];
-        result += thisMethodStack.getClassName() + ".";
-        result += thisMethodStack.getMethodName();
-        result += "(" + thisMethodStack.getFileName();
-        result += ":" + thisMethodStack.getLineNumber() + ")  ";
-        return result;
-    }
 
 }

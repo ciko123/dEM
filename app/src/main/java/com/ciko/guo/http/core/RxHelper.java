@@ -1,10 +1,11 @@
-package com.ciko.guo.http;
+package com.ciko.guo.http.core;
 
 
 import android.support.annotation.NonNull;
 
 import com.ciko.guo.base.ActivityLifeCycleEvent;
 import com.ciko.guo.enity.HttpResult;
+import com.ciko.guo.http.business.config.ApiException;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -40,7 +41,6 @@ public class RxHelper {
         };
     }
 
-
     /**
      * @param <T>
      * @return
@@ -59,11 +59,7 @@ public class RxHelper {
                 return tObservable.flatMap(new Func1<HttpResult<T>, Observable<T>>() {
                     @Override
                     public Observable<T> call(HttpResult<T> result) {
-                        if (result.getCount() != 0) {
-                            return createData(result.getSubjects());
-                        } else {
-                            return Observable.error(new ApiException(result.getCount()));
-                        }
+                            return Observable.error(new ApiException(result.getResultCode()));
                     }
                 }).takeUntil(compareLifecycleObservable).subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io()).subscribeOn(AndroidSchedulers.mainThread()).observeOn(AndroidSchedulers.mainThread());
             }
