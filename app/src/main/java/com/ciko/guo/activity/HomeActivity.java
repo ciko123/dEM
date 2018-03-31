@@ -160,6 +160,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 switchTagPage(4);
                 fragmentUtil.show(UserCenterFragment.class);
                 break;
+
+
+
+
         }
     }
 

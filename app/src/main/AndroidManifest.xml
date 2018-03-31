@@ -27,6 +27,7 @@
         <activity android:name=".activity.WarmInfoActivity" />
         <activity android:name=".activity.DriverDetailActivity" />
         <activity android:name=".activity.ServerTipActivity" />
+        <activity android:name=".activity.ServerGetActivity" />
         <activity android:name=".activity.CodeSearchActivity" />
         <activity android:name=".activity.AddDriverActivity" />
         <activity android:name=".activity.ChatOnlineActivity" />

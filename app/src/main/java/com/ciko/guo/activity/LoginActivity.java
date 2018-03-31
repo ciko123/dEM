@@ -6,9 +6,8 @@ import android.widget.EditText;
 
 import com.ciko.guo.R;
 import com.ciko.guo.base.BaseActivity;
-import com.ciko.guo.bean.UserLogin;
-import com.ciko.guo.http.business.viewIInterface.ILoginView;
 import com.ciko.guo.http.business.config.ApiServiceImp;
+import com.ciko.guo.http.business.viewIInterface.ILoginView;
 import com.ciko.guo.utils.EmptyUtil;
 import com.ciko.guo.utils.ToastUtil;
 
@@ -71,11 +70,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     /**
      * 校验输入内容
-     *
-     * @param phoneLogin
-     * @param pswLogin
-     * @param codeLogin
-     * @return
      */
     private boolean checkInputLoginContext(String phoneLogin, String pswLogin, String codeLogin) {
 
@@ -104,7 +98,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     }
 
     @Override
-    public void postUserLoginResult(UserLogin userLogin) {
+    public void postUserLoginResult() {
         intent2ActivityWithFinish(HomeActivity.class);
     }
 

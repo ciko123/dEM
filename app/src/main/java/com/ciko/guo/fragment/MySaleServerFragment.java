@@ -4,7 +4,14 @@ import android.view.View;
 
 import com.ciko.guo.R;
 import com.ciko.guo.activity.ChatOnlineActivity;
+import com.ciko.guo.activity.CodeSearchActivity;
+import com.ciko.guo.activity.ServerGetActivity;
+import com.ciko.guo.activity.ServerTipActivity;
 import com.ciko.guo.base.BaseFragment;
+import com.ciko.guo.bean.Message;
+import com.ciko.guo.bean.Page;
+import com.ciko.guo.http.business.config.ApiServiceImp;
+import com.ciko.guo.http.business.viewIInterface.IQryMsgListView;
 
 /**
  * 创建时间: 2018/3/19 上午2:33
@@ -12,7 +19,7 @@ import com.ciko.guo.base.BaseFragment;
  *
  * @author 木棉
  */
-public class MySaleServerFragment extends BaseFragment implements View.OnClickListener {
+public class MySaleServerFragment extends BaseFragment implements View.OnClickListener, IQryMsgListView {
 
     private View viewServerGetServers;
     private View viewServerTipServers;
@@ -46,28 +53,34 @@ public class MySaleServerFragment extends BaseFragment implements View.OnClickLi
 
     @Override
     protected void initData() {
-
+        ApiServiceImp.qryMsgList(this, null, null, 1, 1000);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.viewServerGetServers:
-
+                intent2Activity(ServerGetActivity.class);
                 break;
             case R.id.viewServerTipServers:
-
+                intent2Activity(ServerTipActivity.class);
                 break;
             case R.id.viewChatOnlineServers:
                 intent2Activity(ChatOnlineActivity.class);
                 break;
             case R.id.viewCodeSearchServers:
-
+                intent2Activity(CodeSearchActivity.class);
                 break;
             case R.id.tvServerGetServer:
-
+                intent2Activity(ServerGetActivity.class);
                 break;
         }
 
     }
+
+    @Override
+    public void postIQryMsgListResult(Page<Message> messagePage) {
+
+    }
+
 }

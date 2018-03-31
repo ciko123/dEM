@@ -1,7 +1,8 @@
 package com.ciko.guo.http.business.config;
 
 import com.ciko.guo.UserCache;
-import com.ciko.guo.bean.DevicePage;
+import com.ciko.guo.bean.Page;
+import com.ciko.guo.bean.Device;
 import com.ciko.guo.bean.HttpResult;
 import com.ciko.guo.bean.Message;
 import com.ciko.guo.bean.User;
@@ -45,6 +46,7 @@ public class ApiServiceImp {
                     @Override
                     protected void success(HttpResult<UserLogin> result) {
                         UserCache.init(result.getReturnObject());
+                        view.postUserLoginResult();
                     }
                 });
 
@@ -81,9 +83,9 @@ public class ApiServiceImp {
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())//最后在主线程中执行
-                .subscribe(new ResponseBodyCallBack<DevicePage>() {
+                .subscribe(new ResponseBodyCallBack<Page<Device>>() {
                     @Override
-                    protected void success(HttpResult<DevicePage> result) {
+                    protected void success(HttpResult<Page<Device>> result) {
                         view.postQreDriveListResult(result.getReturnObject());
                     }
                 });
@@ -134,17 +136,17 @@ public class ApiServiceImp {
     /**
      * 查询消息列表
      */
-    public static void qryMsgList(final IQryMsgListView view, String title, String status) {
+    public static void qryMsgList(final IQryMsgListView view, String title, String status, int yema, int length) {
 
         HttpClient.getIns()
                 .service(ApiService.class)
-                .qryMsgList(UserCache.getIns().getUserId(), title, status)
+                .qryMsgList(UserCache.getIns().getUserId(), title, status, yema, length)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())//最后在主线程中执行
-                .subscribe(new ResponseBodyCallBack<List<Message>>() {
+                .subscribe(new ResponseBodyCallBack<Page<Message>>() {
                     @Override
-                    protected void success(HttpResult<List<Message>> result) {
+                    protected void success(HttpResult<Page<Message>> result) {
                         view.postIQryMsgListResult(result.getReturnObject());
                     }
                 });

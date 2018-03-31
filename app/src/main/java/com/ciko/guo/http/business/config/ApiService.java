@@ -1,15 +1,13 @@
 package com.ciko.guo.http.business.config;
 
 
-import com.ciko.guo.bean.DevicePage;
+import com.ciko.guo.bean.Page;
+import com.ciko.guo.bean.Device;
 import com.ciko.guo.bean.HttpResult;
 import com.ciko.guo.bean.Message;
 import com.ciko.guo.bean.User;
 import com.ciko.guo.bean.UserLogin;
 
-import java.util.List;
-
-import okhttp3.ResponseBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
@@ -72,10 +70,13 @@ public interface ApiService {
      * @param userId 用户ID
      * @param title  标题
      * @param status 1=待处理 2=已处理
+     * @param yema   页码(可不传)
+     * @param length 每页显示个数(可不传)
+     * @return
      */
     @FormUrlEncoded
     @POST(Url.QRY_MSG_LIST)
-    Observable<HttpResult<List<Message>>> qryMsgList(@Field("userId") Integer userId, @Field("title") String title, @Field("status") String status);
+    Observable<HttpResult<Page<Message>>> qryMsgList(@Field("userId") Integer userId, @Field("title") String title, @Field("status") String status, @Field("yema") Integer yema, @Field("length") Integer length);
 
     /**
      * 查询设备列表
@@ -89,7 +90,7 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST(Url.QRY_DEVICE_LIST)
-    Observable<HttpResult<DevicePage>> qryDeviceList(@Field("userId") Integer userId, @Field("isAppShow") String isAppShow, @Field("yema") Integer yema, @Field("length") Integer length, @Field("name") String name);
+    Observable<HttpResult<Page<Device>>> qryDeviceList(@Field("userId") Integer userId, @Field("isAppShow") String isAppShow, @Field("yema") Integer yema, @Field("length") Integer length, @Field("name") String name);
 
     /**
      * 编辑设备

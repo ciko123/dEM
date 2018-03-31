@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,6 +48,7 @@
                     >
 
                     <RelativeLayout
+                        android:id="@+id/viewIconUser"
                         android:layout_width="match_parent"
                         android:layout_height="75dp"
                         android:paddingLeft="15dp"
@@ -70,6 +74,7 @@
                             >
 
                             <ImageView
+                                android:id="@+id/ivIconUser"
                                 android:layout_width="45dp"
                                 android:layout_height="45dp"
                                 android:background="#999999"
@@ -95,6 +100,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/viewNameUser"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:paddingLeft="15dp"
@@ -120,6 +126,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tvNameUser"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="未填写"
@@ -147,6 +154,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/viewSexUser"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:paddingLeft="15dp"
@@ -172,6 +180,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tvSexUser"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="未选择"
@@ -199,6 +208,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/viewCompayUser"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:paddingLeft="15dp"
@@ -224,6 +234,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tvCompayUser"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text=""
@@ -251,6 +262,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/viewCompayTaxFileNumberUser"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:paddingLeft="15dp"
@@ -276,6 +288,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tvCompayTaxFileNumberUser"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text=""
@@ -306,6 +319,7 @@
                     >
 
                     <RelativeLayout
+                        android:id="@+id/viewMobilePhoneUser"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:paddingLeft="15dp"
@@ -331,6 +345,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tvMobilePhoneUser"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="未填写"
@@ -354,9 +369,66 @@
                             android:background="#dddddd"
                             />
 
+                        <RelativeLayout
+                            android:id="@+id/viewEmailUser"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="46dp"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="邮箱"
+                                android:textColor="#FF333333"
+                                android:textSize="14sp"
+                                />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                >
+
+                                <TextView
+                                    android:id="@+id/tvEmailUser"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=""
+                                    android:textColor="#999999"
+                                    android:textSize="14dp"
+                                    />
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:src="@drawable/ic_arrow_right"
+                                    />
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_alignParentBottom="true"
+                                android:background="#dddddd"
+                                />
+
+                        </RelativeLayout>
+
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/viewPhoneUser"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:paddingLeft="15dp"
@@ -382,6 +454,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tvPhoneUser"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="未填写"
@@ -409,57 +482,6 @@
                     android:background="@color/white"
                     android:orientation="vertical"
                     >
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:text="邮箱"
-                            android:textColor="#FF333333"
-                            android:textSize="14sp"
-                            />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            >
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text=""
-                                android:textColor="#999999"
-                                android:textSize="14dp"
-                                />
-
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_marginLeft="10dp"
-                                android:src="@drawable/ic_arrow_right"
-                                />
-
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1px"
-                            android:layout_alignParentBottom="true"
-                            android:background="#dddddd"
-                            />
-
-                    </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -487,6 +509,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tvWebSiteUser"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text=""
@@ -513,6 +536,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/viewCompayAdressUser"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:paddingLeft="15dp"
@@ -538,6 +562,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tvCompayAdressUser"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text=""
@@ -564,6 +589,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/viewPswUser"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:paddingLeft="15dp"
@@ -610,6 +636,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/viewLoginOutUser"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginBottom="10dp"

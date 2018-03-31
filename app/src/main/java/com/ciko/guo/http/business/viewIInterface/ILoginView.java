@@ -1,6 +1,5 @@
 package com.ciko.guo.http.business.viewIInterface;
 
-import com.ciko.guo.bean.UserLogin;
 
 /**
  * 创建时间: 2018/3/29 上午10:59
@@ -10,6 +9,6 @@ import com.ciko.guo.bean.UserLogin;
  */
 public interface ILoginView {
 
-    void postUserLoginResult(UserLogin userLogin);
+    void postUserLoginResult();
 
 }

@@ -1,8 +1,7 @@
 package com.ciko.guo.http.business.viewIInterface;
 
 import com.ciko.guo.bean.Message;
-
-import java.util.List;
+import com.ciko.guo.bean.Page;
 
 /**
  * 创建时间: 2018/3/31 下午11:09
@@ -12,6 +11,6 @@ import java.util.List;
  */
 public interface IQryMsgListView {
 
-    void postIQryMsgListResult(List<Message> userLogin);
+    void postIQryMsgListResult(Page<Message> userLogin);
 
 }
