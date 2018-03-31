@@ -5,15 +5,15 @@ import android.content.Context;
 
 /**
  * 创建时间: 2017/8/24 上午11:33
- * 类描述:ContextUtils
+ * 类描述:ContextUtil
  *
  * @author 木棉
  */
-public final class ContextUtils {
+public final class ContextUtil {
 
     private static Application app;
 
-    private ContextUtils() {
+    private ContextUtil() {
     }
 
     /**
@@ -22,7 +22,7 @@ public final class ContextUtils {
      * @param app 应用
      */
     public static void init(final Application app) {
-        ContextUtils.app = app;
+        ContextUtil.app = app;
     }
 
     /**

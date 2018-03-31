@@ -2,8 +2,8 @@ package com.ciko.guo;
 
 import android.app.Application;
 
-import com.ciko.guo.utils.ContextUtils;
-import com.ciko.guo.utils.LogUtils;
+import com.ciko.guo.utils.ContextUtil;
+import com.ciko.guo.utils.LogUtil;
 import com.orhanobut.hawk.Hawk;
 
 
@@ -21,9 +21,9 @@ public class App extends Application{
 
         Hawk.init(this).build();
 
-        LogUtils.init();
+        LogUtil.init();
 
-        ContextUtils.init(this);
+        ContextUtil.init(this);
     }
 
 }

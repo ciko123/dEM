@@ -1,6 +1,6 @@
 package com.ciko.guo;
 
-import com.ciko.guo.bean.User;
+import com.ciko.guo.bean.UserLogin;
 
 /**
  * 创建时间: 2018/3/29 下午1:10
@@ -12,7 +12,7 @@ public class UserCache {
 
     private static UserCache userCache;
 
-    private User user;
+    private static UserLogin user;
 
     public static UserCache getIns() {
         if (userCache == null) {
@@ -25,10 +25,25 @@ public class UserCache {
         return userCache;
     }
 
-    public int getUserId() {
-        return 1;
+    public static void init(UserLogin userLogin){
+        user = userLogin;
     }
 
+    public int getUserId() {
+        return user.getId();
+    }
+
+    public String getAccount() {
+        return user.getAccount();
+    }
+
+    public UserLogin getUser() {
+        return user;
+    }
+
+    public String getPsw() {
+        return user.getPassword();
+    }
 
 }
 

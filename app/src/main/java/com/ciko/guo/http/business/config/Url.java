@@ -10,7 +10,7 @@ public interface Url {
     /**
      * 登录
      */
-    String USER_LOGIN = "userLogin";
+    String USER_LOGIN = "userLogin.do";
 
     /**
      * 查询个人信息

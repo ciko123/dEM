@@ -95,7 +95,7 @@
                         style="@style/et"
                         android:layout_marginTop="20dp"
                         android:hint="账号"
-                        android:text="13578902378"
+                        android:text="13375377890"
                         />
 
                     <EditText

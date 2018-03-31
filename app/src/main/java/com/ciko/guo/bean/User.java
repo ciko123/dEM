@@ -1,12 +1,14 @@
 package com.ciko.guo.bean;
 
+import com.ciko.guo.base.Bean;
+
 /**
  * 创建时间: 2018/3/29 上午10:45
  * 类描述:
  *
  * @author Ciko
  */
-public class User {
+public class User extends Bean {
 
     /**
      * account : hyyyy

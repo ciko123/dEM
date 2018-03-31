@@ -6,18 +6,15 @@ import android.widget.EditText;
 
 import com.ciko.guo.R;
 import com.ciko.guo.base.BaseActivity;
-import com.ciko.guo.bean.Device;
 import com.ciko.guo.bean.UserLogin;
-import com.ciko.guo.http.business.viewIInterface.IDriverListView;
 import com.ciko.guo.http.business.viewIInterface.ILoginView;
-import com.ciko.guo.http.core.ApiServiceImp;
+import com.ciko.guo.http.business.config.ApiServiceImp;
 import com.ciko.guo.utils.EmptyUtil;
-import com.ciko.guo.utils.LogUtils;
 import com.ciko.guo.utils.ToastUtil;
 
-import java.util.List;
+public class LoginActivity extends BaseActivity implements View.OnClickListener, ILoginView {
 
-public class LoginActivity extends BaseActivity implements View.OnClickListener, ILoginView ,IDriverListView{
+    private final String TAG = getClass().getSimpleName();
 
     private Button btnLogin;
     private Button btnRegister;
@@ -57,15 +54,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         switch (v.getId()) {
             case R.id.btnLogin:
 
-//                String phoneLogin = etPhoneLogin.getText().toString();
-//                String pswLogin = etPswLogin.getText().toString();
-//                String codeLogin = etCodeLogin.getText().toString();
-//
-//                if (checkInputLoginContext(phoneLogin, pswLogin, codeLogin)) {
-//                    ApiServiceImp.login(this, phoneLogin, pswLogin);
-//                }
+                String phoneLogin = etPhoneLogin.getText().toString();
+                String pswLogin = etPswLogin.getText().toString();
+                String codeLogin = etCodeLogin.getText().toString();
 
-                ApiServiceImp.getDriveList(this, this, 0, 1000, null);
+                if (checkInputLoginContext(phoneLogin, pswLogin, codeLogin)) {
+                    ApiServiceImp.login(this, phoneLogin, pswLogin, null);
+                }
 
                 break;
             case R.id.btnRegister:
@@ -110,11 +105,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void postUserLoginResult(UserLogin userLogin) {
-        LogUtils.obj(userLogin);
+        intent2ActivityWithFinish(HomeActivity.class);
     }
 
-    @Override
-    public void postQreDriveListResult(List<Device> deviceList) {
-
-    }
 }

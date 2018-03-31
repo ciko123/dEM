@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import rx.subjects.PublishSubject;
-
 /**
  * 创建时间: 2018/3/19 上午1:16
  * 类描述:
@@ -15,34 +13,14 @@ import rx.subjects.PublishSubject;
  */
 public abstract class BaseActivity extends Activity {
 
-    public final PublishSubject<ActivityLifeCycleEvent> lifecycleSubject = PublishSubject.create();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        lifecycleSubject.onNext(ActivityLifeCycleEvent.CREATE);
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
         initView();
         setListener();
         initData();
-    }
-
-    @Override
-    protected void onPause() {
-        lifecycleSubject.onNext(ActivityLifeCycleEvent.PAUSE);
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        lifecycleSubject.onNext(ActivityLifeCycleEvent.STOP);
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        lifecycleSubject.onNext(ActivityLifeCycleEvent.DESTROY);
     }
 
     abstract protected int getLayoutResId();
@@ -71,6 +49,5 @@ public abstract class BaseActivity extends Activity {
         intent2Activity(cls);
         finish();
     }
-
 
 }

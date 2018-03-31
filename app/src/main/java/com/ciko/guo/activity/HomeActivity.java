@@ -11,7 +11,7 @@ import com.ciko.guo.fragment.HomeFragment;
 import com.ciko.guo.fragment.MyDriversFragment;
 import com.ciko.guo.fragment.MySaleServerFragment;
 import com.ciko.guo.fragment.UserCenterFragment;
-import com.ciko.guo.utils.FragmentUtils;
+import com.ciko.guo.utils.FragmentUtil;
 
 /**
  * 创建时间: 2018/3/19 上午1:30
@@ -21,7 +21,7 @@ import com.ciko.guo.utils.FragmentUtils;
  */
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
-    private FragmentUtils fragmentUtils;
+    private FragmentUtil fragmentUtil;
 
     private HomeFragment homeFragment;
     private MyDriversFragment myDriversFragment;
@@ -132,13 +132,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         mySaleServerFragment = new MySaleServerFragment();
         userCenterFragment = new UserCenterFragment();
 
-        fragmentUtils = new FragmentUtils(getContext(), R.id.flContainer);
-        fragmentUtils.add(homeFragment);
-        fragmentUtils.add(myDriversFragment);
-        fragmentUtils.add(mySaleServerFragment);
-        fragmentUtils.add(userCenterFragment);
+        fragmentUtil = new FragmentUtil(getContext(), R.id.flContainer);
+        fragmentUtil.add(homeFragment);
+        fragmentUtil.add(myDriversFragment);
+        fragmentUtil.add(mySaleServerFragment);
+        fragmentUtil.add(userCenterFragment);
 
-        fragmentUtils.show(HomeFragment.class);
+        fragmentUtil.show(HomeFragment.class);
     }
 
     @Override
@@ -146,19 +146,19 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.viewHomeTag:
                 switchTagPage(1);
-                fragmentUtils.show(HomeFragment.class);
+                fragmentUtil.show(HomeFragment.class);
                 break;
             case R.id.viewDriversTag:
                 switchTagPage(2);
-                fragmentUtils.show(MyDriversFragment.class);
+                fragmentUtil.show(MyDriversFragment.class);
                 break;
             case R.id.viewSaleServerTag:
                 switchTagPage(3);
-                fragmentUtils.show(MySaleServerFragment.class);
+                fragmentUtil.show(MySaleServerFragment.class);
                 break;
             case R.id.viewUserCenterTag:
                 switchTagPage(4);
-                fragmentUtils.show(UserCenterFragment.class);
+                fragmentUtil.show(UserCenterFragment.class);
                 break;
         }
     }

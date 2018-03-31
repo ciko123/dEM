@@ -7,9 +7,9 @@ import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 
-public class LogUtils {
+public class LogUtil {
 
-    private LogUtils() {
+    private LogUtil() {
     }
 
     public static void init() {

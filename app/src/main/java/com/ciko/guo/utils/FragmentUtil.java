@@ -14,7 +14,7 @@ import java.util.Map;
  *
  * @author 木棉
  */
-public class FragmentUtils {
+public class FragmentUtil {
 
     private Map<String, Fragment> fragmentMap = new HashMap<>();
 
@@ -22,7 +22,7 @@ public class FragmentUtils {
 
     private int containerViewId;
 
-    public FragmentUtils(Activity activity, int containerViewId) {
+    public FragmentUtil(Activity activity, int containerViewId) {
         this.containerViewId = containerViewId;
         fragmentManager = activity.getFragmentManager();
     }

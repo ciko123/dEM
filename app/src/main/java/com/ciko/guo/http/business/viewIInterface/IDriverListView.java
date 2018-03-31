@@ -1,8 +1,6 @@
 package com.ciko.guo.http.business.viewIInterface;
 
-import com.ciko.guo.bean.Device;
-
-import java.util.List;
+import com.ciko.guo.bean.DevicePage;
 
 /**
  * 创建时间: 2018/3/29 下午1:14
@@ -12,6 +10,6 @@ import java.util.List;
  */
 public interface IDriverListView {
 
-    void postQreDriveListResult(List<Device> deviceList);
+    void postQreDriveListResult(DevicePage devicePage);
 
 }

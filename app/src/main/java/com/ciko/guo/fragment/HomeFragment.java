@@ -4,14 +4,11 @@ import android.view.View;
 
 import com.ciko.guo.R;
 import com.ciko.guo.activity.AddDriverActivity;
-import com.ciko.guo.activity.HomeActivity;
 import com.ciko.guo.activity.WarmInfoActivity;
 import com.ciko.guo.base.BaseFragment;
-import com.ciko.guo.bean.Device;
+import com.ciko.guo.bean.DevicePage;
 import com.ciko.guo.http.business.viewIInterface.IDriverListView;
-import com.ciko.guo.http.core.ApiServiceImp;
-
-import java.util.List;
+import com.ciko.guo.http.business.config.ApiServiceImp;
 
 /**
  * 创建时间: 2018/3/19 上午1:46
@@ -53,7 +50,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
     @Override
     protected void initData() {
-        ApiServiceImp.getDriveList((HomeActivity)getActivity(), this, 1, 1000, null);
+        ApiServiceImp.qryDeviceList(this, 1, 1000, null);
     }
 
     @Override
@@ -79,7 +76,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     }
 
     @Override
-    public void postQreDriveListResult(List<Device> deviceList) {
+    public void postQreDriveListResult(DevicePage devicePage) {
 
     }
+
 }

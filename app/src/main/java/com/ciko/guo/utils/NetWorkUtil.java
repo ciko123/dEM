@@ -7,9 +7,9 @@ import android.net.NetworkInfo;
 /**
  * 网络状态工具类
  */
-public class NetWorkUtils {
+public class NetWorkUtil {
 
-    private NetWorkUtils() {
+    private NetWorkUtil() {
 
     }
 
