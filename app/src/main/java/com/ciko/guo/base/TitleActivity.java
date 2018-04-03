@@ -12,7 +12,7 @@ import com.ciko.guo.R;
  *
  * @author 木棉
  */
-public abstract class TitleActivity extends BaseActivity {
+public abstract class TitleActivity extends BaseActivity implements View.OnClickListener{
 
     private View viewBackTitleActivity;
     private View viewRightTitleActivity;
@@ -23,6 +23,8 @@ public abstract class TitleActivity extends BaseActivity {
     private TextView tvOperateTitleRight;
 
     private FrameLayout frameLayout;
+
+    private OnCliekTitleRightOperateListener listener;
 
     @Override
     protected void initView() {
@@ -58,13 +60,25 @@ public abstract class TitleActivity extends BaseActivity {
     abstract protected String getTitleName();
 
     public void setTitleRightOperateName(String operateName, OnCliekTitleRightOperateListener listener) {
+
+        this.listener = listener;
+
         viewRightTitleActivity.setVisibility(View.VISIBLE);
+        viewRightTitleActivity.setOnClickListener(this);
         tvOperateTitleRight.setText(operateName);
-        listener.OnCliekTitleRightOperate();
+
     }
 
     public interface OnCliekTitleRightOperateListener {
         void OnCliekTitleRightOperate();
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.viewRightTitleActivity:
+                listener.OnCliekTitleRightOperate();
+                break;
+        }
+    }
 }
