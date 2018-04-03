@@ -11,6 +11,6 @@ import com.ciko.guo.bean.Page;
  */
 public interface IQryMsgListView {
 
-    void postIQryMsgListResult(Page<Message> userLogin);
+    void postIQryMsgListResult(Page<Message> data);
 
 }

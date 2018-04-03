@@ -8,5 +8,5 @@ import java.io.Serializable;
  *
  * @author Ciko
  */
-public class Bean implements Serializable{
+public class Bean implements Serializable {
 }

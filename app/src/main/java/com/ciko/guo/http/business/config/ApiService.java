@@ -1,10 +1,11 @@
 package com.ciko.guo.http.business.config;
 
 
-import com.ciko.guo.bean.Page;
 import com.ciko.guo.bean.Device;
+import com.ciko.guo.bean.DeviceDetial;
 import com.ciko.guo.bean.HttpResult;
 import com.ciko.guo.bean.Message;
+import com.ciko.guo.bean.Page;
 import com.ciko.guo.bean.User;
 import com.ciko.guo.bean.UserLogin;
 
@@ -25,7 +26,7 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST(Url.USER_LOGIN)
-    Observable<HttpResult<UserLogin>> login(@Field("account") String account, @Field("password") String password, @Field("code") String code);
+    Observable<HttpResult<UserLogin>> login(@Field("account") String account, @Field("password") String password);
 
     /**
      * 查询个人信息
@@ -102,6 +103,26 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(Url.EDIT_DEVICE)
     Observable<HttpResult<String>> editDevice(@Field("id") Integer id, @Field("isAppShow") String isAppShow);
+
+    /**
+     * 设备详情
+     *
+     * @param id 设备id
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Url.GET_DEVICE_INFO)
+    Observable<HttpResult<DeviceDetial>> getDeviceInfo(@Field("id") Integer id);
+
+    /**
+     * 设备详情
+     *
+     * @param id 设备id
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Url.GET_DEVICE_INFO)
+    Observable<HttpResult<DeviceDetial>> qryOrderObject(@Field("orderNo") String orderNo);
 
 
 }

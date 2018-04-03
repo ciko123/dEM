@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hwangjr.rxbus.RxBus;
+
 /**
  * 创建时间: 2018/3/19 上午1:46
  * 类描述:
@@ -20,6 +22,7 @@ public abstract class BaseFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        RxBus.get().register(this);
         rootView = inflater.inflate(getLayoutResId(), null);
         return rootView;
     }
@@ -58,5 +61,9 @@ public abstract class BaseFragment extends Fragment {
         getActivity().finish();
     }
 
-
+    @Override
+    public void onDestroy() {
+        RxBus.get().unregister(this);
+        super.onDestroy();
+    }
 }

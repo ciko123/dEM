@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.ciko.guo.utils.EmptyUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,7 +110,9 @@ public class MultiItemTypeAdapter<T> extends BaseAdapter {
      */
     public void reLoadData(List<T> datas) {
         mDatas.clear();
-        mDatas.addAll(datas);
+        if (EmptyUtil.isNotEmpty(datas)) {
+            mDatas.addAll(datas);
+        }
         notifyDataSetChanged();
     }
 

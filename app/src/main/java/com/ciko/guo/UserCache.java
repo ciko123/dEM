@@ -45,5 +45,10 @@ public class UserCache {
         return user.getPassword();
     }
 
+    public void clear() {
+        userCache = null;
+        user = null;
+    }
+
 }
 

@@ -11,6 +11,6 @@ import com.ciko.guo.bean.Device;
  */
 public interface IDriverListView {
 
-    void postQreDriveListResult(Page<Device> devicePage);
+    void postQreDriveListResult(Page<Device> data);
 
 }

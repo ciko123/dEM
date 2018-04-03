@@ -107,36 +107,6 @@
                         android:text="123456"
                         />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal"
-                        >
-
-                        <EditText
-                            android:id="@+id/etCodeLogin"
-                            style="@style/et"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:hint="验证码"
-                            android:text="1234"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/shape_rect_round_line_blue"
-                            android:paddingBottom="6dp"
-                            android:paddingLeft="16dp"
-                            android:paddingRight="16dp"
-                            android:paddingTop="6dp"
-                            android:text="获取验证码"
-                            android:textColor="#3F9AF8"
-                            android:textSize="12sp"
-                            />
-
-                    </LinearLayout>
 
                     <Button
                         android:id="@+id/btnLogin"
@@ -255,34 +225,6 @@
                         android:hint="确认密码"
                         android:inputType="textPassword"
                         />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:orientation="horizontal"
-                        >
-
-                        <EditText
-                            style="@style/et"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:hint="验证码"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/shape_rect_round_line_blue"
-                            android:paddingBottom="4dp"
-                            android:paddingLeft="16dp"
-                            android:paddingRight="16dp"
-                            android:paddingTop="4dp"
-                            android:text="获取验证码"
-                            android:textColor="#3F9AF8"
-                            android:textSize="12sp"
-                            />
-
-                    </LinearLayout>
 
                     <Button
                         android:id="@+id/btnRegister"

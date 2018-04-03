@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -141,134 +140,39 @@
 
     </LinearLayout>
 
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         >
 
-        <LinearLayout
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/rlDeviceListHome"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="5dp"
             >
 
-            <android.support.v7.widget.CardView
+            <com.scwang.smartrefresh.layout.header.ClassicsHeader
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:orientation="vertical"
-                app:cardBackgroundColor="#2ACAA6"
-                app:cardElevation="0dp"
-                >
+                android:layout_height="wrap_content"
+                />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="3dp"
-                    android:background="@color/white"
-                    android:orientation="vertical"
-                    >
+            <ListView
+                android:id="@+id/lvDeviceListHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/transparency"
+                android:dividerHeight="0dp"
+                />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:paddingRight="15dp"
-                        >
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:text="运行中"
-                            android:textColor="#2ACAA6"
-                            android:textSize="12sp"
-                            />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        >
-
-                        <ImageView
-                            android:layout_width="105dp"
-                            android:layout_height="80dp"
-                            android:layout_marginLeft="8dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/test_driver"
-                            />
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="8dp"
-                            >
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                >
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginRight="10dp"
-                                    android:ellipsize="end"
-                                    android:lines="1"
-                                    android:text="设备名称：设备名称设备名称设备…"
-                                    android:textColor="#333333"
-                                    android:textSize="14dp"
-                                    />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_marginTop="4dp"
-                                    android:ellipsize="end"
-                                    android:lines="1"
-                                    android:text="设备编号：201700001"
-                                    android:textColor="#333333"
-                                    android:textSize="14dp"
-                                    />
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1px"
-                                    android:layout_marginTop="16dp"
-                                    android:background="#dddddd"
-                                    />
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:layout_alignParentRight="true"
-                                android:layout_marginBottom="8dp"
-                                android:layout_marginRight="10dp"
-                                android:text="查看 >>"
-                                android:textColor="#FF3F9AF8"
-                                android:textSize="12sp"
-                                />
-
-                        </RelativeLayout>
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-
-            </android.support.v7.widget.CardView>
-
-
-        </LinearLayout>
-
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
         <ImageView
             android:id="@+id/viewAddDriverHome"

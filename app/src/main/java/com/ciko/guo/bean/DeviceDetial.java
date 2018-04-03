@@ -3,13 +3,12 @@ package com.ciko.guo.bean;
 import com.ciko.guo.base.Bean;
 
 /**
- * 创建时间: 2018/3/29 上午10:48
+ * 创建时间: 2018/4/3 下午7:34
  * 类描述:
  *
  * @author Ciko
  */
-public class Device  extends Bean {
-
+public class DeviceDetial extends Bean{
 
     /**
      * commType : 1

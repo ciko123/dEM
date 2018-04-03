@@ -8,10 +8,11 @@
     >
 
     <ImageView
+        android:id="@+id/ivPicDeviceDetail"
         android:layout_width="match_parent"
         android:layout_height="225dp"
         android:background="@color/white"
-        android:src="@drawable/test_driver"
+        android:scaleType="centerCrop"
         />
 
     <RelativeLayout
@@ -24,6 +25,7 @@
         >
 
         <TextView
+            android:id="@+id/tvNameDeviceDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -49,6 +51,7 @@
         >
 
         <TextView
+            android:id="@+id/tvNumDeviceDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -69,6 +72,7 @@
         >
 
         <TextView
+            android:id="@+id/tvStatusDeviceDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -78,6 +82,7 @@
             />
 
         <TextView
+            android:id="@+id/tvRunTimeDeviceDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -99,6 +104,7 @@
         >
 
         <TextView
+            android:id="@+id/tvOutWaterTemperatureDeviceDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -108,6 +114,7 @@
             />
 
         <TextView
+            android:id="@+id/tvInWaterTemperatureDeviceDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -134,6 +141,7 @@
         >
 
         <TextView
+            android:id="@+id/tvInWaterGageDeviceDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -143,6 +151,7 @@
             />
 
         <TextView
+            android:id="@+id/tvOutWaterGageDeviceDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -169,6 +178,7 @@
         >
 
         <TextView
+            android:id="@+id/tvInFlueTemperatureDeviceDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

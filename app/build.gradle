@@ -38,4 +38,13 @@ dependencies {
     compile 'com.orhanobut:logger:2.2.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.2'
     compile 'com.alibaba:fastjson:1.2.46'
+    //1.0.5 当1.1.0出现问题可以回退到1.0.5.1
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+    compile 'com.android.support:design:25.4.0'//版本随意（非必须，引用可以解决无法预览问题）
+
+    compile 'com.hwangjr.rxbus:rxbus:1.0.5'
+
+    compile 'de.hdodenhof:circleimageview:2.2.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
 }

@@ -7,13 +7,19 @@ import android.widget.TextView;
 import com.ciko.guo.R;
 import com.ciko.guo.UserCache;
 import com.ciko.guo.activity.CompanyAddressActivity;
+import com.ciko.guo.activity.CompanyBelongToActivity;
+import com.ciko.guo.activity.CompanyTaxFileNumberActivity;
+import com.ciko.guo.activity.CompanyWebsiteActivity;
 import com.ciko.guo.activity.EmailActivity;
+import com.ciko.guo.activity.LoginActivity;
 import com.ciko.guo.activity.MobilePhoneActivity;
 import com.ciko.guo.activity.PhoneActivity;
 import com.ciko.guo.activity.UserNameActivity;
 import com.ciko.guo.activity.UserPswActivity;
 import com.ciko.guo.base.BaseFragment;
 import com.ciko.guo.bean.UserLogin;
+import com.ciko.guo.dialog.SelectPicWayDialog;
+import com.ciko.guo.dialog.SelectSexDialog;
 
 /**
  * 创建时间: 2018/3/19 上午2:33
@@ -33,6 +39,7 @@ public class UserCenterFragment extends BaseFragment implements View.OnClickList
     private View viewMobilePhoneUser;
     private View viewPhoneUser;
     private View viewCompayAdressUser;
+    private View viewCompanyWebSiteUser;
 
     private TextView tvNameUser;
     private TextView tvSexUser;
@@ -65,6 +72,7 @@ public class UserCenterFragment extends BaseFragment implements View.OnClickList
         viewMobilePhoneUser = findView(R.id.viewMobilePhoneUser);
         viewPhoneUser = findView(R.id.viewPhoneUser);
         viewCompayAdressUser = findView(R.id.viewCompayAdressUser);
+        viewCompanyWebSiteUser = findView(R.id.viewCompanyWebSiteUser);
 
         tvNameUser = findView(R.id.tvNameUser);
         tvSexUser = findView(R.id.tvSexUser);
@@ -91,6 +99,9 @@ public class UserCenterFragment extends BaseFragment implements View.OnClickList
         viewMobilePhoneUser.setOnClickListener(this);
         viewPhoneUser.setOnClickListener(this);
         viewCompayAdressUser.setOnClickListener(this);
+        viewCompayTaxFileNumberUser.setOnClickListener(this);
+        viewCompanyWebSiteUser.setOnClickListener(this);
+        viewLoginOutUser.setOnClickListener(this);
     }
 
     @Override
@@ -117,16 +128,18 @@ public class UserCenterFragment extends BaseFragment implements View.OnClickList
                 intent2Activity(UserPswActivity.class);
                 break;
             case R.id.viewSexUser:
-
+                SelectSexDialog selectSexDialog = new SelectSexDialog(getContext());
+                selectSexDialog.show();
                 break;
             case R.id.viewIconUser:
-
+                SelectPicWayDialog selectPicWayDialog = new SelectPicWayDialog(getContext());
+                selectPicWayDialog.show();
                 break;
             case R.id.viewNameUser:
                 intent2Activity(UserNameActivity.class);
                 break;
             case R.id.viewCompayUser:
-
+                intent2Activity(CompanyBelongToActivity.class);
                 break;
             case R.id.viewEmailUser:
                 intent2Activity(EmailActivity.class);
@@ -139,6 +152,16 @@ public class UserCenterFragment extends BaseFragment implements View.OnClickList
                 break;
             case R.id.viewCompayAdressUser:
                 intent2Activity(CompanyAddressActivity.class);
+                break;
+            case R.id.viewCompayTaxFileNumberUser:
+                intent2Activity(CompanyTaxFileNumberActivity.class);
+                break;
+            case R.id.viewCompanyWebSiteUser:
+                intent2Activity(CompanyWebsiteActivity.class);
+                break;
+            case R.id.viewLoginOutUser:
+                UserCache.getIns().clear();
+                intent2ActivityWithFinish(LoginActivity.class);
                 break;
         }
     }

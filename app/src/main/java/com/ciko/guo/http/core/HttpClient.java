@@ -54,10 +54,14 @@ public class HttpClient {
                 HttpUrl.Builder authorizedUrlBuilder = request.url()
                         .newBuilder()
                         //添加统一参数 如手机唯一标识符,token等
-//                        .addQueryParameter("account", UserCache.getIns().getAccount())
                         .addQueryParameter("accountType", "android")
                         .addQueryParameter("clientType", BuildConfig.VERSION_NAME)
                         .addQueryParameter("timeStamp", System.currentTimeMillis() + "");
+
+                if (UserCache.getIns().getUser() != null) {
+                    authorizedUrlBuilder.addQueryParameter("account", UserCache.getIns().getAccount());
+                    authorizedUrlBuilder.addQueryParameter("password", UserCache.getIns().getPsw());
+                }
 
                 Request newRequest = request.newBuilder()
                         //对所有请求添加请求头

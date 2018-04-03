@@ -13,14 +13,11 @@ import com.ciko.guo.utils.ToastUtil;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener, ILoginView {
 
-    private final String TAG = getClass().getSimpleName();
-
     private Button btnLogin;
     private Button btnRegister;
 
     private EditText etPhoneLogin;
     private EditText etPswLogin;
-    private EditText etCodeLogin;
 
     @Override
     protected int getLayoutResId() {
@@ -31,7 +28,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     protected void initView() {
         etPhoneLogin = findView(R.id.etPhoneLogin);
         etPswLogin = findView(R.id.etPswLogin);
-        etCodeLogin = findView(R.id.etCodeLogin);
 
         btnLogin = findView(R.id.btnLogin);
         btnRegister = findView(R.id.btnRegister);
@@ -55,10 +51,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
                 String phoneLogin = etPhoneLogin.getText().toString();
                 String pswLogin = etPswLogin.getText().toString();
-                String codeLogin = etCodeLogin.getText().toString();
 
-                if (checkInputLoginContext(phoneLogin, pswLogin, codeLogin)) {
-                    ApiServiceImp.login(this, phoneLogin, pswLogin, null);
+                if (checkInputLoginContext(phoneLogin, pswLogin)) {
+                    ApiServiceImp.login(this, phoneLogin, pswLogin);
                 }
 
                 break;
@@ -71,7 +66,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     /**
      * 校验输入内容
      */
-    private boolean checkInputLoginContext(String phoneLogin, String pswLogin, String codeLogin) {
+    private boolean checkInputLoginContext(String phoneLogin, String pswLogin) {
 
         if (EmptyUtil.isEmpty(phoneLogin)) {
             ToastUtil.show("请输入手机号码");
@@ -85,11 +80,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
         if (EmptyUtil.isEmpty(pswLogin)) {
             ToastUtil.show("请输入密码");
-            return false;
-        }
-
-        if (EmptyUtil.isEmpty(codeLogin)) {
-            ToastUtil.show("请输入验证码");
             return false;
         }
 

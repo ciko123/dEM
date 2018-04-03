@@ -24,14 +24,24 @@
 
         <activity android:name=".activity.RegisterSuccessActivity" />
         <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.UserNameActivity" />
+        <activity android:name=".activity.MobilePhoneActivity" />
+        <activity android:name=".activity.PhoneActivity" />
+        <activity android:name=".activity.CompanyAddressActivity" />
+        <activity android:name=".activity.CompanyTaxFileNumberActivity" />
+        <activity android:name=".activity.CompanyWebsiteActivity" />
         <activity android:name=".activity.WarmInfoActivity" />
-        <activity android:name=".activity.DriverDetailActivity" />
+        <activity android:name=".activity.DeviceDetailActivity" />
         <activity android:name=".activity.ServerTipActivity" />
         <activity android:name=".activity.ServerGetActivity" />
         <activity android:name=".activity.CodeSearchActivity" />
         <activity android:name=".activity.AddDriverActivity" />
         <activity android:name=".activity.ChatOnlineActivity" />
         <activity android:name=".activity.NewChatActivity" />
+        <activity android:name=".activity.CompanyBelongToActivity" />
+        <activity android:name=".activity.EmailActivity" />
+        <activity android:name=".activity.LookMessageActivity" />
+        <activity android:name=".activity.UserPswActivity" />
 
     </application>
 

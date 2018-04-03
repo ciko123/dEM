@@ -1,6 +1,6 @@
 package com.ciko.guo.http.business.viewIInterface;
 
-import com.ciko.guo.bean.User;
+import com.ciko.guo.bean.DeviceDetial;
 
 /**
  * 创建时间: 2018/3/29 下午4:58
@@ -8,8 +8,8 @@ import com.ciko.guo.bean.User;
  *
  * @author Ciko
  */
-public interface IAccountInfo {
+public interface IDeviceDetial {
 
-    void postQryAccountInfoResult(User data);
+    void postGetDeviceInfooResult(DeviceDetial data);
 
 }

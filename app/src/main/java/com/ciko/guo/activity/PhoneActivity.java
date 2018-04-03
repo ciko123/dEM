@@ -23,7 +23,7 @@ public class PhoneActivity extends TitleActivity {
 
     @Override
     protected void initView() {
-
+        super.initView();
     }
 
     @Override

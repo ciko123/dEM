@@ -42,4 +42,15 @@ public interface Url {
      */
     String EDIT_DEVICE = "device/editDevice";
 
+    /**
+     * 设备详情
+     */
+    String GET_DEVICE_INFO = "device/getDeviceInfo";
+
+    /**
+     * 工单查询
+     */
+    String QRY_ORDER_OBJECT = "order/qryOrderObject";
+
+
 }
