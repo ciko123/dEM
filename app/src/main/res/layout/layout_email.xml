@@ -15,7 +15,8 @@
         android:paddingRight="15dp"
         >
 
-        <EditText
+        <com.xw.repo.XEditText
+            android:id="@+id/etEmailUserEdit"
             style="@style/et"
             android:layout_gravity="center"
             android:hint="设置邮箱"

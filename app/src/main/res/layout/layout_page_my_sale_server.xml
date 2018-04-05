@@ -187,8 +187,8 @@
                     android:id="@+id/lvMessageListSaleServer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:divider="@color/transparency"
-                    android:dividerHeight="0dp"
+                    android:divider="@color/divide_line"
+                    android:dividerHeight="1px"
                     />
 
             </com.scwang.smartrefresh.layout.SmartRefreshLayout>

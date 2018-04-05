@@ -54,12 +54,12 @@ public class MyDriversFragment extends BaseFragment implements OnRefreshListener
 
         rlDeviceListMyDevice.setOnRefreshListener(this);
 
-        ApiServiceImp.qryDeviceList(this, "y", null, null, null);
+        ApiServiceImp.qryDeviceList(this, "y", 1, 1000, null);
     }
 
     @Override
     public void onRefresh(RefreshLayout refreshLayout) {
-        ApiServiceImp.qryDeviceList(this, "y", null, null, null);
+        ApiServiceImp.qryDeviceList(this, "y", 1, 1000, null);
     }
 
     @Override

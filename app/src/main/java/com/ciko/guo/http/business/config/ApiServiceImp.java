@@ -96,11 +96,40 @@ public class ApiServiceImp {
      */
     public static void editAccountInfo(final IEditAccountInfoView view, String cellPhone, String account, String address, String email, String landLine, String invoiceNumber, String sex) {
 
-        UserLogin user = UserCache.getIns().getUser();
+        UserLogin userTemp = UserCache.getIns().getUserTemp();
+
+        if (cellPhone != null) {
+            userTemp.setCellPhone(cellPhone);
+        }
+
+        if (account != null) {
+            userTemp.setAccount(account);
+        }
+
+        if (address != null) {
+            userTemp.setAddress(address);
+        }
+
+        if (email != null) {
+            userTemp.setEmail(email);
+        }
+
+        if (landLine != null) {
+            userTemp.setLandLine(landLine);
+        }
+
+        if (invoiceNumber != null) {
+            userTemp.setInvoiceNumber(invoiceNumber);
+        }
+
+        if (sex != null) {
+            userTemp.setSex(sex);
+        }
+
 
         HttpClient.getIns()
                 .service(ApiService.class)
-                .editAccountInfo(user.getId(), user.getPassword(), user.getCellPhone(), user.getAccount(), user.getAddress(), user.getEmail(), user.getLandLine(), user.getInvoiceNumber(), user.getSex())
+                .editAccountInfo(userTemp.getId(), userTemp.getPassword(), userTemp.getCellPhone(), userTemp.getAccount(), userTemp.getAddress(), userTemp.getEmail(), userTemp.getLandLine(), userTemp.getInvoiceNumber(), userTemp.getSex())
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())//最后在主线程中执行

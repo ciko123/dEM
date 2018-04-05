@@ -58,7 +58,7 @@ public interface ApiService {
      * @param userId   用户ID
      * @param question 问题详情描述
      * @param title    标题
-     * @param type     类型 1=服务、2=通知
+     * @param type     类型 1=服务、2=通知、3=咨询
      * @param name     用户姓名
      */
     @FormUrlEncoded

@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.ciko.guo.R;
 import com.ciko.guo.UserCache;
 import com.ciko.guo.activity.CompanyAddressActivity;
@@ -18,7 +19,6 @@ import com.ciko.guo.activity.UserNameActivity;
 import com.ciko.guo.activity.UserPswActivity;
 import com.ciko.guo.base.BaseFragment;
 import com.ciko.guo.bean.UserLogin;
-import com.ciko.guo.dialog.SelectPicWayDialog;
 import com.ciko.guo.dialog.SelectSexDialog;
 
 /**
@@ -109,6 +109,8 @@ public class UserCenterFragment extends BaseFragment implements View.OnClickList
 
         UserLogin userLogin = UserCache.getIns().getUser();
 
+        Glide.with(getContext()).load(userLogin.getHeadImg()).into(ivIconUser);
+
         tvNameUser.setText(userLogin.getName());
         tvSexUser.setText(userLogin.getSex());
         tvCompayUser.setText(userLogin.getCompanyName());
@@ -132,8 +134,10 @@ public class UserCenterFragment extends BaseFragment implements View.OnClickList
                 selectSexDialog.show();
                 break;
             case R.id.viewIconUser:
-                SelectPicWayDialog selectPicWayDialog = new SelectPicWayDialog(getContext());
-                selectPicWayDialog.show();
+//                SelectPicWayDialog selectPicWayDialog = new SelectPicWayDialog(getContext());
+//                selectPicWayDialog.show();
+
+
                 break;
             case R.id.viewNameUser:
                 intent2Activity(UserNameActivity.class);

@@ -16,6 +16,7 @@
         >
 
         <com.xw.repo.XEditText
+            android:id="@+id/etNameUserEdit"
             style="@style/et"
             android:layout_gravity="center"
             android:hint="名字"

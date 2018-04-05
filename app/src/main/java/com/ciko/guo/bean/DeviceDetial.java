@@ -2,13 +2,15 @@ package com.ciko.guo.bean;
 
 import com.ciko.guo.base.Bean;
 
+import java.util.Map;
+
 /**
  * 创建时间: 2018/4/3 下午7:34
  * 类描述:
  *
  * @author Ciko
  */
-public class DeviceDetial extends Bean{
+public class DeviceDetial extends Bean {
 
     /**
      * commType : 1
@@ -57,6 +59,8 @@ public class DeviceDetial extends Bean{
     private int typeId;
     private int userId;
     private String username;
+
+    private Map<String, String> data;
 
     public int getCommType() {
         return commType;
@@ -232,5 +236,13 @@ public class DeviceDetial extends Bean{
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Map<String, String> getData() {
+        return data;
+    }
+
+    public void setData(Map<String, String> data) {
+        this.data = data;
     }
 }

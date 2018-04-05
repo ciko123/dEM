@@ -23,17 +23,20 @@
             android:paddingTop="10dp"
             >
 
-            <EditText
+            <com.xw.repo.XEditText
+                android:id="@+id/etPswOldUserEdit"
                 style="@style/et"
                 android:hint="输入旧密码"
                 />
 
-            <EditText
+            <com.xw.repo.XEditText
+                android:id="@+id/etPswNewUserEdit"
                 style="@style/et"
                 android:hint="输入新密码"
                 />
 
-            <EditText
+            <com.xw.repo.XEditText
+                android:id="@+id/etPswNewRepetitionUserEdit"
                 style="@style/et"
                 android:hint="再次输入新密码"
                 />

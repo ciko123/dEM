@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.ciko.guo.R;
+import com.imnjh.imagepicker.SImagePicker;
 
 /**
  * 创建时间: 2018/3/20 下午3:49
@@ -48,7 +49,10 @@ public class SelectPicWayDialog extends Dialog implements View.OnClickListener {
                 break;
 
             case R.id.viewTakePhotoGetPhoto:
-                dismiss();
+
+
+
+
                 break;
 
             case R.id.viewTPhotoAlbumGetPhoto:

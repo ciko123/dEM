@@ -20,6 +20,7 @@ public class UserLogin extends Bean {
      * dealerId : 1
      * depositBank : xx
      * email : 145@qq.com
+     * headImg : http://o8cc2eo80.bkt.clouddn.com/3385f06c424949d1b0285a5cc06eb76f.jpg
      * id : 6
      * invoiceNumber : x20170007
      * isDelete : n
@@ -29,7 +30,7 @@ public class UserLogin extends Bean {
      * password : e10adc3949ba59abbe56e057f20f883e
      * sex : 1
      * status : 1
-     * token : a58ac08c19300fe36888362fa11bb711
+     * token : c8667c3f7cf7bfe7d3f44af91f8b3b84
      * userType : 1
      */
 
@@ -42,6 +43,7 @@ public class UserLogin extends Bean {
     private int dealerId;
     private String depositBank;
     private String email;
+    private String headImg;
     private int id;
     private String invoiceNumber;
     private String isDelete;
@@ -124,6 +126,14 @@ public class UserLogin extends Bean {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getHeadImg() {
+        return headImg;
+    }
+
+    public void setHeadImg(String headImg) {
+        this.headImg = headImg;
     }
 
     public int getId() {

@@ -9,7 +9,7 @@ import com.ciko.guo.base.TitleActivity;
  *
  * @author 木棉
  */
-public class CompanyTaxFileNumberActivity extends TitleActivity {
+public class CompanyTaxFileNumberActivity extends TitleActivity implements TitleActivity.OnCliekTitleRightOperateListener{
 
     @Override
     protected int getContentLayoutResId() {
@@ -28,6 +28,11 @@ public class CompanyTaxFileNumberActivity extends TitleActivity {
 
     @Override
     protected void initData() {
+        setTitleRightOperateName("确定", this);
+    }
+
+    @Override
+    public void OnCliekTitleRightOperate() {
 
     }
 }

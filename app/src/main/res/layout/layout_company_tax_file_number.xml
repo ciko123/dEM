@@ -15,7 +15,8 @@
         android:paddingRight="15dp"
         >
 
-        <EditText
+        <com.xw.repo.XEditText
+            android:id="@+id/etCompanyTaxFileNumberUserEdit"
             style="@style/et"
             android:layout_gravity="center"
             android:hint="输入公司税号"

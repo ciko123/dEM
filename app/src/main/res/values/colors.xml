@@ -6,6 +6,7 @@
 
     <color name="theme">#5fa2f1</color>
     <color name="page_bg">#f1f1f1</color>
+    <color name="divide_line">#dddddd</color>
 
     <color name="transparency">#00FFFFFF</color>
     <color name="white">#FFFFFF</color>

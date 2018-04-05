@@ -9,7 +9,7 @@ import com.ciko.guo.base.TitleActivity;
  *
  * @author 木棉
  */
-public class PhoneActivity extends TitleActivity {
+public class PhoneActivity extends TitleActivity implements TitleActivity.OnCliekTitleRightOperateListener{
 
     @Override
     protected int getContentLayoutResId() {
@@ -34,5 +34,10 @@ public class PhoneActivity extends TitleActivity {
     @Override
     protected void initData() {
 
+    }
+
+    @Override
+    public void OnCliekTitleRightOperate() {
+        setTitleRightOperateName("确定", this);
     }
 }

@@ -24,6 +24,8 @@ public class App extends Application{
         LogUtil.init();
 
         ContextUtil.init(this);
+
+
     }
 
 }

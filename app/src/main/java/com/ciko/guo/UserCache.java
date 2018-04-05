@@ -17,7 +17,7 @@ public class UserCache {
     public static UserCache getIns() {
         if (userCache == null) {
             synchronized (UserCache.class) {
-                if (userCache == null) {//2
+                if (userCache == null) {
                     userCache = new UserCache();
                 }
             }
@@ -25,7 +25,7 @@ public class UserCache {
         return userCache;
     }
 
-    public static void init(UserLogin userLogin){
+    public static void init(UserLogin userLogin) {
         user = userLogin;
     }
 
@@ -48,6 +48,31 @@ public class UserCache {
     public void clear() {
         userCache = null;
         user = null;
+    }
+
+    public UserLogin getUserTemp() {
+        UserLogin userTemp = new UserLogin();
+        userTemp.setAccount(user.getAccount());
+        userTemp.setAddress(user.getAddress());
+        userTemp.setBankAccount(user.getBankAccount());
+        userTemp.setCellPhone(user.getCellPhone());
+        userTemp.setCompanyName(user.getCompanyName());
+        userTemp.setCreateTime(user.getCreateTime());
+        userTemp.setDealerId(user.getDealerId());
+        userTemp.setDepositBank(user.getDepositBank());
+        userTemp.setEmail(user.getEmail());
+        userTemp.setId(user.getId());
+        userTemp.setInvoiceNumber(user.getInvoiceNumber());
+        userTemp.setIsDelete(user.getIsDelete());
+        userTemp.setLandLine(user.getLandLine());
+        userTemp.setModifyTime(user.getModifyTime());
+        userTemp.setName(user.getName());
+        userTemp.setPassword(user.getPassword());
+        userTemp.setSex(user.getSex());
+        userTemp.setStatus(user.getStatus());
+        userTemp.setToken(user.getToken());
+        userTemp.setUserType(user.getUserType());
+        return userTemp;
     }
 
 }
