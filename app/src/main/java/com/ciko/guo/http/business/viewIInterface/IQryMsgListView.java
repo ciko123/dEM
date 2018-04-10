@@ -9,8 +9,10 @@ import com.ciko.guo.bean.Page;
  *
  * @author Ciko
  */
-public interface IQryMsgListView {
+public interface IQryMsgListView extends IErrorView{
 
     void postIQryMsgListResult(Page<Message> data);
+
+
 
 }

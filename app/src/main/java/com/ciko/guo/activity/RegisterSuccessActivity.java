@@ -1,5 +1,8 @@
 package com.ciko.guo.activity;
 
+import android.view.View;
+import android.widget.Button;
+
 import com.ciko.guo.R;
 import com.ciko.guo.base.BaseActivity;
 
@@ -9,7 +12,9 @@ import com.ciko.guo.base.BaseActivity;
  *
  * @author 木棉
  */
-public class RegisterSuccessActivity extends BaseActivity {
+public class RegisterSuccessActivity extends BaseActivity implements View.OnClickListener {
+
+    private Button btnIntent2Login;
 
     @Override
     protected int getLayoutResId() {
@@ -18,16 +23,25 @@ public class RegisterSuccessActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
+        btnIntent2Login = (Button) findViewById(R.id.btnIntent2Login);
     }
 
     @Override
     protected void setListener() {
-
+        btnIntent2Login.setOnClickListener(this);
     }
 
     @Override
     protected void initData() {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnIntent2Login:
+                finish();
+                break;
+        }
     }
 }

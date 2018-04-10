@@ -72,6 +72,8 @@ public class UserCache {
         userTemp.setStatus(user.getStatus());
         userTemp.setToken(user.getToken());
         userTemp.setUserType(user.getUserType());
+        userTemp.setCompanyUrl(user.getCompanyUrl());
+        userTemp.setHeadImg(user.getHeadImg());
         return userTemp;
     }
 

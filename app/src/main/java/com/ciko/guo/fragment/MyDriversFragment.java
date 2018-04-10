@@ -2,6 +2,7 @@ package com.ciko.guo.fragment;
 
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.ciko.guo.R;
 import com.ciko.guo.activity.AddDriverActivity;
@@ -11,9 +12,8 @@ import com.ciko.guo.bean.Device;
 import com.ciko.guo.bean.Page;
 import com.ciko.guo.http.business.config.ApiServiceImp;
 import com.ciko.guo.http.business.viewIInterface.IDriverListView;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+import com.ciko.guo.utils.EmptyUtil;
+import com.xw.repo.XEditText;
 
 /**
  * 创建时间: 2018/3/19 上午2:32
@@ -21,14 +21,18 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
  *
  * @author 木棉
  */
-public class MyDriversFragment extends BaseFragment implements OnRefreshListener, IDriverListView, View.OnClickListener {
+public class MyDriversFragment extends BaseFragment implements IDriverListView, View.OnClickListener {
 
     private View viewAddDriverMyDevice;
 
+    private TextView rectSearchMyDevice;
+
+    private XEditText etCodeMyDevice;
+
     private ListView lvDeviceListMyDevice;
-    private SmartRefreshLayout rlDeviceListMyDevice;
 
     private DeviceListAdapter deviceListAdapter;
+
 
     @Override
     protected int getLayoutResId() {
@@ -39,32 +43,26 @@ public class MyDriversFragment extends BaseFragment implements OnRefreshListener
     protected void initView() {
         viewAddDriverMyDevice = findView(R.id.viewAddDriverMyDevice);
         lvDeviceListMyDevice = findView(R.id.lvDeviceListMyDevice);
-        rlDeviceListMyDevice = findView(R.id.rlDeviceListMyDevice);
+        rectSearchMyDevice = findView(R.id.rectSearchMyDevice);
+        etCodeMyDevice = findView(R.id.etCodeMyDevice);
     }
 
     @Override
     protected void setListener() {
         viewAddDriverMyDevice.setOnClickListener(this);
+        rectSearchMyDevice.setOnClickListener(this);
     }
 
     @Override
     protected void initData() {
-        deviceListAdapter = new DeviceListAdapter(getContext(), R.layout.item_message);
+        deviceListAdapter = new DeviceListAdapter(getContext(), R.layout.item_device);
         lvDeviceListMyDevice.setAdapter(deviceListAdapter);
 
-        rlDeviceListMyDevice.setOnRefreshListener(this);
-
-        ApiServiceImp.qryDeviceList(this, "y", 1, 1000, null);
-    }
-
-    @Override
-    public void onRefresh(RefreshLayout refreshLayout) {
         ApiServiceImp.qryDeviceList(this, "y", 1, 1000, null);
     }
 
     @Override
     public void postQreDriveListResult(Page<Device> data) {
-        rlDeviceListMyDevice.finishRefresh();
 
         deviceListAdapter.reLoadData(data.getPageList());
 
@@ -76,6 +74,22 @@ public class MyDriversFragment extends BaseFragment implements OnRefreshListener
             case R.id.viewAddDriverMyDevice:
                 intent2Activity(AddDriverActivity.class);
                 break;
+            case R.id.rectSearchMyDevice:
+
+                String key = etCodeMyDevice.getText().toString();
+
+                if (EmptyUtil.isEmpty(key)) {
+                    ApiServiceImp.qryDeviceList(this, "y", 1, 1000, null);
+                } else {
+                    ApiServiceImp.qryDeviceList(this, "y", 1, 1000, key);
+                }
+
+                break;
         }
     }
+
+    @Override
+    public void postFail() {
+    }
+
 }

@@ -12,6 +12,7 @@ import com.ciko.guo.base.TitleActivity;
 import com.ciko.guo.bean.DeviceDetial;
 import com.ciko.guo.http.business.config.ApiServiceImp;
 import com.ciko.guo.http.business.viewIInterface.IDeviceDetial;
+import com.ciko.guo.http.business.viewIInterface.IEditDeviceView;
 import com.ciko.guo.utils.EmptyUtil;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import java.util.Map;
  *
  * @author 木棉
  */
-public class DeviceDetailActivity extends TitleActivity implements IDeviceDetial {
+public class DeviceDetailActivity extends TitleActivity implements IDeviceDetial ,IEditDeviceView{
 
     private TextView tvNameDeviceDetail;
     private TextView tvNumDeviceDetail;
@@ -70,7 +71,10 @@ public class DeviceDetailActivity extends TitleActivity implements IDeviceDetial
     protected void initData() {
         deviceId = (int) getIntent().getSerializableExtra("deviceId");
 
-        ApiServiceImp.getDeviceInfo(this, 4);
+        ApiServiceImp.getDeviceInfo(this, deviceId);
+
+        ApiServiceImp.editDevice(this, deviceId, "y");
+
 
 
     }
@@ -140,4 +144,8 @@ public class DeviceDetailActivity extends TitleActivity implements IDeviceDetial
     }
 
 
+    @Override
+    public void postIEditDeviceResult() {
+
+    }
 }

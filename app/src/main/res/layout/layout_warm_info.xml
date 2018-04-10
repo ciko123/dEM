@@ -25,59 +25,13 @@
 
     </RelativeLayout>
 
-    <FrameLayout
+    <ListView
+        android:id="@+id/lvWarmInfo"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
-        android:paddingBottom="10dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:paddingTop="10dp"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="项目名称：项目名称项目名称"
-                android:textColor="#333333"
-                android:textSize="14dp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="设备名称：设备名称设备名称"
-                android:textColor="#333333"
-                android:textSize="14dp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="出水温度：300 ℃"
-                android:textColor="#333333"
-                android:textSize="14dp"
-                />
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="17dp"
-            android:layout_height="17dp"
-            android:src="@drawable/ic_down"
-            android:layout_gravity="bottom|right"
-            />
-
-    </FrameLayout>
-
+        android:divider="@color/divide_line"
+        android:dividerHeight="1px"
+        />
 
 </LinearLayout>

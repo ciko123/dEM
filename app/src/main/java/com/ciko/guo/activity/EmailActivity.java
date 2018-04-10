@@ -16,7 +16,7 @@ import com.ciko.guo.utils.ToastUtil;
  *
  * @author 木棉
  */
-public class EmailActivity extends TitleActivity implements TitleActivity.OnCliekTitleRightOperateListener ,IEditAccountInfoView{
+public class EmailActivity extends TitleActivity implements TitleActivity.OnCliekTitleRightOperateListener, IEditAccountInfoView {
 
     private EditText etEmailUserEdit;
 
@@ -43,6 +43,8 @@ public class EmailActivity extends TitleActivity implements TitleActivity.OnClie
 
     @Override
     protected void initData() {
+        etEmailUserEdit.setText(UserCache.getIns().getUser().getEmail());
+
         setTitleRightOperateName("确定", this);
     }
 
@@ -61,7 +63,7 @@ public class EmailActivity extends TitleActivity implements TitleActivity.OnClie
             return;
         }
 
-        ApiServiceImp.editAccountInfo(this, null, null, null, emailEdit, null, null, null);
+        ApiServiceImp.editAccountInfo(this, null, null, null, emailEdit, null, null, null, null, null);
     }
 
     @Override
@@ -69,6 +71,7 @@ public class EmailActivity extends TitleActivity implements TitleActivity.OnClie
         String emailEdit = etEmailUserEdit.getText().toString();
         UserCache.getIns().getUser().setEmail(emailEdit);
         ToastUtil.show("修改邮箱成功");
+        finish();
     }
 
 }

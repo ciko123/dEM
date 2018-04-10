@@ -1,5 +1,6 @@
 package com.ciko.guo.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +13,7 @@ import com.ciko.guo.fragment.MyDriversFragment;
 import com.ciko.guo.fragment.MySaleServerFragment;
 import com.ciko.guo.fragment.UserCenterFragment;
 import com.ciko.guo.utils.FragmentUtil;
+import com.imnjh.imagepicker.SImagePicker;
 
 /**
  * 创建时间: 2018/3/19 上午1:30
@@ -77,53 +79,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void initData() {
         initFragment();
-
-
-//        //获取豆瓣电影TOP 100
-//        Observable ob = Api.getDefault().getTopMovie(0, 100);
-//        HttpUtil.getInstance().toSubscribe(ob, new ProgressSubscriber<List<Subject>>(this) {
-//            @Override
-//            protected void _onError(String message) {
-//                Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
-//            }
-//
-//            @Override
-//            protected void _onNext(List<Subject> list) {
-//                if (EmptyUtil.isNotEmpty(list)) {
-//                    for (Subject subject : list) {
-//                        System.out.println(subject.toString());
-//                    }
-//                }
-//            }
-//
-//        }, "cacheKey", ActivityLifeCycleEvent.PAUSE, lifecycleSubject, false, false);
-
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl(Url.BASE_URL)
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-//
-//        BlogService service = retrofit.create(BlogService.class);
-//
-//        Call<ResponseBody> call = service.getTopMovie(0, 100);
-//        // 用法和OkHttp的call如出一辙,
-//        // 不同的是如果是Android系统回调方法执行在主线程
-//        call.enqueue(new Callback<ResponseBody>() {
-//            @Override
-//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-//                try {
-//                    System.out.println(response.body().string());
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseBody> call, Throwable t) {
-//                t.printStackTrace();
-//            }
-//        });
-
     }
 
     private void initFragment() {

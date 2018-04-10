@@ -9,7 +9,7 @@ import com.ciko.guo.bean.Device;
  *
  * @author Ciko
  */
-public interface IDriverListView {
+public interface IDriverListView extends IErrorView{
 
     void postQreDriveListResult(Page<Device> data);
 

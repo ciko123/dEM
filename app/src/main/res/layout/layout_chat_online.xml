@@ -24,65 +24,26 @@
         android:textSize="14sp"
         />
 
-    <LinearLayout
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/rlMessageListChaetOnline"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:background="@color/white"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         >
 
-        <View
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
             android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#dddddd"
+            android:layout_height="wrap_content"
             />
 
-        <RelativeLayout
+        <ListView
+            android:id="@+id/lvMessageListChaetOnline"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingBottom="10dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:paddingTop="10dp"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:lines="1"
-                android:text="申请：设备一维保期延续3年时间"
-                android:textColor="#333333"
-                android:textSize="14dp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:text="未回复"
-                android:textColor="#D0021B"
-                android:textSize="12sp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:text="2018-01-01  08:18"
-                android:textColor="#FF999999"
-                android:textSize="12sp"
-                />
-
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#dddddd"
+            android:layout_height="wrap_content"
+            android:divider="@color/divide_line"
+            android:dividerHeight="1px"
             />
 
-    </LinearLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 </LinearLayout>

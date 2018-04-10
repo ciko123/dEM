@@ -45,6 +45,9 @@ public class UserNameActivity extends TitleActivity implements TitleActivity.OnC
 
     @Override
     protected void initData() {
+
+        etNameUserEdit.setText(UserCache.getIns().getUser().getName());
+
         setTitleRightOperateName("确定", this);
     }
 
@@ -63,16 +66,15 @@ public class UserNameActivity extends TitleActivity implements TitleActivity.OnC
             return;
         }
 
-        ApiServiceImp.editAccountInfo(this, null, nameEdit, null, null, null, null, null);
+        ApiServiceImp.editAccountInfo(this, null, nameEdit, null, null, null, null, null, null, null);
 
     }
 
     @Override
     public void postEditAccountInfResult() {
-
         String nameEdit = etNameUserEdit.getText().toString();
         UserCache.getIns().getUser().setName(nameEdit);
-
         ToastUtil.show("修改名字成功");
+        finish();
     }
 }

@@ -6,6 +6,7 @@ import com.ciko.guo.R;
 import com.ciko.guo.base.adapter.CommonAdapter;
 import com.ciko.guo.base.adapter.ViewHolder;
 import com.ciko.guo.bean.Message;
+import com.ciko.guo.utils.TimeUtil;
 
 /**
  * 创建时间: 2018/4/2 上午9:30
@@ -22,6 +23,7 @@ public class MessageListAdapter extends CommonAdapter<Message> {
     @Override
     protected void convert(ViewHolder viewHolder, Message item, int position) {
         viewHolder.setText(R.id.tvTitleMessage, item.getTitle());
+        viewHolder.setText(R.id.tvTimeMessage, TimeUtil.millis2String(item.getCreateTime()));
 
         switch (item.getStatus()) {
             case 1:

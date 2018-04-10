@@ -11,16 +11,17 @@ import com.ciko.guo.base.Bean;
 public class Message extends Bean {
 
     /**
-     * account : admin
-     * createTime : 1521607300000
-     * id : 2
-     * ipAddress : 192.168.0.7
-     * name : 张三
-     * question : 2222问题详情问题详情问题详情问题详情问题详情问题详情
-     * status : 1
-     * title : 这是问题标题22
-     * type : 1
-     * userId : 1
+     * account : 13375377890
+     * createTime : 1522891147000
+     * id : 12
+     * ipAddress : 125.119.233.22
+     * name : hh
+     * question : 我的设备一直重启，不知道什么原因
+     * reply : 又有意义有意义有意义呀
+     * status : 2
+     * title : 设备重启问题
+     * type : 3
+     * userId : 6
      */
 
     private String account;
@@ -29,6 +30,7 @@ public class Message extends Bean {
     private String ipAddress;
     private String name;
     private String question;
+    private String reply;
     private int status;
     private String title;
     private int type;
@@ -80,6 +82,14 @@ public class Message extends Bean {
 
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+    public String getReply() {
+        return reply;
+    }
+
+    public void setReply(String reply) {
+        this.reply = reply;
     }
 
     public int getStatus() {

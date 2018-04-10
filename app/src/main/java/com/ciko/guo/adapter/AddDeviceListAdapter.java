@@ -23,6 +23,8 @@ import com.hwangjr.rxbus.RxBus;
 public class AddDeviceListAdapter extends CommonAdapter<Device> {
 
     public static final String EVENT_CLICK_DEVICE_DETAIL = "EVENT_CLICK_DEVICE_DETAIL";
+    public static final String EVENT_CLICK_DEVICE_SELECT = "EVENT_CLICK_DEVICE_SELECT";
+
 
     public AddDeviceListAdapter(Context context, int layoutId) {
         super(context, layoutId);
@@ -36,12 +38,30 @@ public class AddDeviceListAdapter extends CommonAdapter<Device> {
         viewHolder.setText(R.id.tvNameAddDevice, "设备名称：" + item.getName());
         viewHolder.setText(R.id.tvNumAddDevice, "设备编号：" + item.getSerialNumber());
 
+        switch (item.getIsAppShow()) {
+            case "y":
+                viewHolder.setImageResource(R.id.ivStatusDeviceAddDevice, R.drawable.ic_check_selected);
+                break;
+            case "n":
+                viewHolder.setImageResource(R.id.ivStatusDeviceAddDevice, R.drawable.ic_check_normal);
+                break;
+        }
+
         viewHolder.getView(R.id.viewDetailAddDevice).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 RxBus.get().post(EVENT_CLICK_DEVICE_DETAIL, item);
             }
         });
+
+        viewHolder.getView(R.id.ivStatusDeviceAddDevice).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RxBus.get().post(EVENT_CLICK_DEVICE_SELECT, item);
+            }
+        });
+
+
 
         setStatusView(viewHolder, item.getStatus());
 
@@ -75,7 +95,7 @@ public class AddDeviceListAdapter extends CommonAdapter<Device> {
                 cardViewDevice.setCardBackgroundColor(ResourceUtil.getColor(R.color.device_status_pause));
                 break;
         }
-    }
 
+    }
 
 }

@@ -3,20 +3,19 @@ package com.ciko.guo.http.core;
 import com.ciko.guo.BuildConfig;
 import com.ciko.guo.UserCache;
 import com.ciko.guo.http.business.config.Url;
-import com.google.gson.Gson;
-import com.google.gson.internal.bind.ArrayTypeAdapter;
+import com.ciko.guo.utils.EmptyUtil;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.HttpUrl;
+import okhttp3.FormBody;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * 创建时间: 2018/3/29 下午2:30
@@ -49,28 +48,34 @@ public class HttpClient {
         httpClientBuilder.addInterceptor(new Interceptor() {
             @Override
             public okhttp3.Response intercept(Chain chain) throws IOException {
-                Request request = chain.request();
 
-                HttpUrl.Builder authorizedUrlBuilder = request.url()
-                        .newBuilder()
-                        //添加统一参数 如手机唯一标识符,token等
-                        .addQueryParameter("accountType", "android")
-                        .addQueryParameter("clientType", BuildConfig.VERSION_NAME)
-                        .addQueryParameter("timeStamp", System.currentTimeMillis() + "");
+                Request original = chain.request();
+                Request.Builder requestBuilder = original.newBuilder();
 
-                if (UserCache.getIns().getUser() != null) {
-                    authorizedUrlBuilder.addQueryParameter("account", UserCache.getIns().getAccount());
-                    authorizedUrlBuilder.addQueryParameter("password", UserCache.getIns().getPsw());
+                FormBody.Builder newFormBody = new FormBody.Builder();
+                RequestBody requestBody = original.body();
+                if (requestBody instanceof FormBody) {
+                    FormBody oidFormBody = (FormBody) original.body();
+                    if (EmptyUtil.isNotEmpty(oidFormBody)) {
+                        for (int i = 0; i < oidFormBody.size(); i++) {
+                            newFormBody.addEncoded(oidFormBody.encodedName(i), oidFormBody.encodedValue(i));
+                        }
+                    }
                 }
 
-                Request newRequest = request.newBuilder()
-                        //对所有请求添加请求头
-//                        .header("mobileFlag", "adfsaeefe").addHeader("type", "4")
-                        .method(request.method(), request.body())
-                        .url(authorizedUrlBuilder.build())
-                        .build();
+                newFormBody.add("accountType", "android");
+                newFormBody.add("clientType", BuildConfig.VERSION_NAME);
+                newFormBody.add("timeStamp", System.currentTimeMillis() + "");
 
-                return  chain.proceed(newRequest);
+
+                if (UserCache.getIns().getUser() != null) {
+                    newFormBody.add("account", UserCache.getIns().getAccount());
+                }
+
+                requestBuilder.method(original.method(), newFormBody.build());
+
+                Request request = requestBuilder.build();
+                return chain.proceed(request);
             }
         });
 

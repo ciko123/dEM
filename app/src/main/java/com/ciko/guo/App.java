@@ -4,6 +4,9 @@ import android.app.Application;
 
 import com.ciko.guo.utils.ContextUtil;
 import com.ciko.guo.utils.LogUtil;
+import com.ciko.guo.utils.ResourceUtil;
+import com.imnjh.imagepicker.PickerConfig;
+import com.imnjh.imagepicker.SImagePicker;
 import com.orhanobut.hawk.Hawk;
 
 
@@ -13,7 +16,7 @@ import com.orhanobut.hawk.Hawk;
  *
  * @author Ciko
  */
-public class App extends Application{
+public class App extends Application {
 
     @Override
     public void onCreate() {
@@ -25,6 +28,9 @@ public class App extends Application{
 
         ContextUtil.init(this);
 
+        SImagePicker.init(new PickerConfig.Builder().setAppContext(this)
+                .setImageLoader(new GlideImageLoader())
+                .setToolbaseColor(getResources().getColor(R.color.colorPrimary)).build());
 
     }
 

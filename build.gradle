@@ -19,7 +19,22 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
+}
+
+ext {
+    minSdk = 14
+    targetSdk = 19
+    buildToolsVersion = "23.0.2"
+    compileSdkVersion = 23
+
+    javaSourceCompatibility = JavaVersion.VERSION_1_8
+    javaTargetCompatibility = JavaVersion.VERSION_1_8
+
+    // Libraries
+    appcompat7Version = '23.3.0'
+    recyclerviewVersion = '23.3.0'
 }
 
 task clean(type: Delete) {

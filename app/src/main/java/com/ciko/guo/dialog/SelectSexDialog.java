@@ -22,6 +22,8 @@ public class SelectSexDialog extends Dialog implements View.OnClickListener {
     private TextView viewWomanSelectSex;
     private TextView viewCannelSelectSex;
 
+    private OnSelectSexDialogListener listener;
+
     public SelectSexDialog(@NonNull Context context) {
         super(context, R.style.Dialog);
         setContentView(R.layout.layout_select_sex);
@@ -43,11 +45,15 @@ public class SelectSexDialog extends Dialog implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.viewManSelectSex:
-                dismiss();
+                if (listener != null) {
+                    listener.onSelectSexDialog("1");
+                }
                 break;
 
             case R.id.viewWomanSelectSex:
-                dismiss();
+                if (listener != null) {
+                    listener.onSelectSexDialog("2");
+                }
                 break;
 
             case R.id.viewCannelSelectSex:
@@ -57,7 +63,19 @@ public class SelectSexDialog extends Dialog implements View.OnClickListener {
             case R.id.bgSelectSex:
                 dismiss();
                 break;
-
         }
     }
+
+    public OnSelectSexDialogListener getListener() {
+        return listener;
+    }
+
+    public void setListener(OnSelectSexDialogListener listener) {
+        this.listener = listener;
+    }
+
+    public interface OnSelectSexDialogListener {
+        void onSelectSexDialog(String sex);
+    }
+
 }

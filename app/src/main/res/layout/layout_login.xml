@@ -7,7 +7,9 @@
     android:background="@color/theme"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
     >
 
     <TextView
@@ -25,6 +27,7 @@
         >
 
         <FrameLayout
+            android:id="@+id/rectLogin"
             android:layout_width="match_parent"
             android:layout_height="410dp"
             android:layout_marginTop="30dp"
@@ -53,6 +56,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tvRegisterLogin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -95,6 +99,7 @@
                         style="@style/et"
                         android:layout_marginTop="20dp"
                         android:hint="账号"
+                        android:inputType="phone"
                         android:text="13375377890"
                         />
 
@@ -128,8 +133,9 @@
 
 
         <FrameLayout
+            android:id="@+id/rectRegister"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="460dp"
             android:layout_marginTop="30dp"
             android:visibility="gone"
             >
@@ -156,6 +162,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tvloginLogin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -175,7 +182,7 @@
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="420dp"
                 android:layout_gravity="bottom"
                 android:elevation="10dp"
                 card_view:cardElevation="10dp"
@@ -199,29 +206,39 @@
                         />
 
                     <EditText
+                        android:id="@+id/etCompanyNameRegister"
                         style="@style/et"
                         android:layout_marginTop="10dp"
                         android:hint="公司名称"
                         />
 
                     <EditText
+                        android:id="@+id/etUserNameRegister"
                         style="@style/et"
+                        android:layout_marginTop="10dp"
                         android:hint="姓名"
                         />
 
                     <EditText
+                        android:id="@+id/etPhoneRegister"
                         style="@style/et"
+                        android:layout_marginTop="10dp"
                         android:hint="账号：手机号"
+                        android:inputType="phone"
                         />
 
                     <EditText
+                        android:id="@+id/etPswRegister"
                         style="@style/et"
+                        android:layout_marginTop="10dp"
                         android:hint="密码"
                         android:inputType="textPassword"
                         />
 
                     <EditText
+                        android:id="@+id/etRePswRegister"
                         style="@style/et"
+                        android:layout_marginTop="10dp"
                         android:hint="确认密码"
                         android:inputType="textPassword"
                         />
@@ -231,7 +248,7 @@
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="20dp"
                         android:background="@drawable/btn_rect_round_blue"
                         android:text="注册"
                         android:textColor="@color/white"

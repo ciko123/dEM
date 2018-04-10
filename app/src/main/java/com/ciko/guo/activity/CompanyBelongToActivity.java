@@ -43,6 +43,9 @@ public class CompanyBelongToActivity extends TitleActivity implements TitleActiv
 
     @Override
     protected void initData() {
+
+        etCompanyNameUserEdit.setText(UserCache.getIns().getUser().getCompanyName());
+
         setTitleRightOperateName("确定", this);
     }
 
@@ -63,7 +66,7 @@ public class CompanyBelongToActivity extends TitleActivity implements TitleActiv
         }
 
 
-        ApiServiceImp.editAccountInfo(this, null, null, null, null, null, null, null);
+        ApiServiceImp.editAccountInfo(this, null, null, null, null, null, null, null, null, null);
     }
 
     @Override
@@ -71,5 +74,6 @@ public class CompanyBelongToActivity extends TitleActivity implements TitleActiv
         String companyNameEdit = etCompanyNameUserEdit.getText().toString();
         UserCache.getIns().getUser().setCompanyName(companyNameEdit);
         ToastUtil.show("修改公司名成功");
+        finish();
     }
 }

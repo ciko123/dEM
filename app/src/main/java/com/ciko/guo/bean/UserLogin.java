@@ -55,6 +55,8 @@ public class UserLogin extends Bean {
     private int status;
     private String token;
     private int userType;
+    private String companyUrl;
+
 
     public String getAccount() {
         return account;
@@ -222,5 +224,13 @@ public class UserLogin extends Bean {
 
     public void setUserType(int userType) {
         this.userType = userType;
+    }
+
+    public String getCompanyUrl() {
+        return companyUrl;
+    }
+
+    public void setCompanyUrl(String companyUrl) {
+        this.companyUrl = companyUrl;
     }
 }

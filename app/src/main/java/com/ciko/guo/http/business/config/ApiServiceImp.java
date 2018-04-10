@@ -5,6 +5,7 @@ import com.ciko.guo.bean.Device;
 import com.ciko.guo.bean.DeviceDetial;
 import com.ciko.guo.bean.HttpResult;
 import com.ciko.guo.bean.Message;
+import com.ciko.guo.bean.Order;
 import com.ciko.guo.bean.Page;
 import com.ciko.guo.bean.User;
 import com.ciko.guo.bean.UserLogin;
@@ -15,7 +16,10 @@ import com.ciko.guo.http.business.viewIInterface.IDriverListView;
 import com.ciko.guo.http.business.viewIInterface.IEditAccountInfoView;
 import com.ciko.guo.http.business.viewIInterface.IEditDeviceView;
 import com.ciko.guo.http.business.viewIInterface.ILoginView;
+import com.ciko.guo.http.business.viewIInterface.IModPasswordView;
 import com.ciko.guo.http.business.viewIInterface.IQryMsgListView;
+import com.ciko.guo.http.business.viewIInterface.IQryOrderObjectView;
+import com.ciko.guo.http.business.viewIInterface.IRegisterView;
 import com.ciko.guo.http.core.HttpClient;
 import com.ciko.guo.http.core.ResponseBodyCallBack;
 import com.ciko.guo.utils.MD5Util;
@@ -47,6 +51,46 @@ public class ApiServiceImp {
                     protected void success(HttpResult<UserLogin> result) {
                         UserCache.init(result.getReturnObject());
                         view.postUserLoginResult();
+                    }
+                });
+
+    }
+
+    /**
+     * 注册
+     */
+    public static void register(final IRegisterView view, String companyName, String name, String phone, String psw) {
+
+        HttpClient.getIns()
+                .service(ApiService.class)
+                .addUser(companyName, name, phone, MD5Util.encode(psw))
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())//最后在主线程中执行
+                .subscribe(new ResponseBodyCallBack<String>() {
+                    @Override
+                    protected void success(HttpResult<String> result) {
+                        view.postAddUserResult();
+                    }
+                });
+
+    }
+
+    /**
+     * 修改密码
+     */
+    public static void modPassword(final IModPasswordView view, String oldPassword, String newPassword) {
+
+        HttpClient.getIns()
+                .service(ApiService.class)
+                .modPassword(MD5Util.encode(oldPassword), MD5Util.encode(newPassword), MD5Util.encode(newPassword))
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())//最后在主线程中执行
+                .subscribe(new ResponseBodyCallBack<String>() {
+                    @Override
+                    protected void success(HttpResult<String> result) {
+                        view.postModPasswordResult();
                     }
                 });
 
@@ -88,13 +132,19 @@ public class ApiServiceImp {
                     protected void success(HttpResult<Page<Device>> result) {
                         view.postQreDriveListResult(result.getReturnObject());
                     }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        view.postFail();
+                    }
                 });
     }
 
     /**
      * 编辑用户信息
      */
-    public static void editAccountInfo(final IEditAccountInfoView view, String cellPhone, String account, String address, String email, String landLine, String invoiceNumber, String sex) {
+    public static void editAccountInfo(final IEditAccountInfoView view, String cellPhone, String account, String address, String email, String landLine, String invoiceNumber, String sex, String companyUrl, String headImg) {
 
         UserLogin userTemp = UserCache.getIns().getUserTemp();
 
@@ -126,10 +176,17 @@ public class ApiServiceImp {
             userTemp.setSex(sex);
         }
 
+        if (companyUrl != null) {
+            userTemp.setCompanyUrl(companyUrl);
+        }
+
+        if (headImg != null) {
+            userTemp.setHeadImg(headImg);
+        }
 
         HttpClient.getIns()
                 .service(ApiService.class)
-                .editAccountInfo(userTemp.getId(), userTemp.getPassword(), userTemp.getCellPhone(), userTemp.getAccount(), userTemp.getAddress(), userTemp.getEmail(), userTemp.getLandLine(), userTemp.getInvoiceNumber(), userTemp.getSex())
+                .editAccountInfo(userTemp.getId(), userTemp.getPassword(), userTemp.getCellPhone(), userTemp.getAccount(), userTemp.getAddress(), userTemp.getEmail(), userTemp.getLandLine(), userTemp.getInvoiceNumber(), userTemp.getSex(), userTemp.getCompanyUrl(), userTemp.getHeadImg())
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())//最后在主线程中执行
@@ -165,11 +222,11 @@ public class ApiServiceImp {
     /**
      * 查询消息列表
      */
-    public static void qryMsgList(final IQryMsgListView view, String title, String status, int yema, int length) {
+    public static void qryMsgList(final IQryMsgListView view, Integer msgType, String title, String status, int yema, int length) {
 
         HttpClient.getIns()
                 .service(ApiService.class)
-                .qryMsgList(UserCache.getIns().getUserId(), title, status, yema, length)
+                .qryMsgList(UserCache.getIns().getUserId(), msgType, title, status, yema, length)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())//最后在主线程中执行
@@ -177,6 +234,12 @@ public class ApiServiceImp {
                     @Override
                     protected void success(HttpResult<Page<Message>> result) {
                         view.postIQryMsgListResult(result.getReturnObject());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        view.postFail();
                     }
                 });
 
@@ -222,5 +285,26 @@ public class ApiServiceImp {
                 });
 
     }
+
+    /**
+     * 工单查询
+     */
+    public static void qryOrderObject(final IQryOrderObjectView view, String orderNo) {
+
+        HttpClient.getIns()
+                .service(ApiService.class)
+                .qryOrderObject(orderNo)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())//最后在主线程中执行
+                .subscribe(new ResponseBodyCallBack<Order>() {
+                    @Override
+                    protected void success(HttpResult<Order> result) {
+                        view.postQryOrderObjectResult(result.getReturnObject());
+                    }
+                });
+
+    }
+
 
 }

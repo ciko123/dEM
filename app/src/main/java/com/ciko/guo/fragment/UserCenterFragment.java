@@ -1,5 +1,8 @@
 package com.ciko.guo.fragment;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +23,14 @@ import com.ciko.guo.activity.UserPswActivity;
 import com.ciko.guo.base.BaseFragment;
 import com.ciko.guo.bean.UserLogin;
 import com.ciko.guo.dialog.SelectSexDialog;
+import com.ciko.guo.http.business.config.ApiServiceImp;
+import com.ciko.guo.http.business.viewIInterface.IEditAccountInfoView;
+import com.ciko.guo.utils.ToastUtil;
+import com.imnjh.imagepicker.SImagePicker;
+import com.imnjh.imagepicker.activity.PhotoPickerActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 创建时间: 2018/3/19 上午2:33
@@ -27,7 +38,9 @@ import com.ciko.guo.dialog.SelectSexDialog;
  *
  * @author 木棉
  */
-public class UserCenterFragment extends BaseFragment implements View.OnClickListener {
+public class UserCenterFragment extends BaseFragment implements View.OnClickListener, IEditAccountInfoView {
+
+    public static final int REQUEST_CODE_AVATAR = 100;
 
     private View viewPswUser;
     private View viewSexUser;
@@ -54,6 +67,11 @@ public class UserCenterFragment extends BaseFragment implements View.OnClickList
 
     private ImageView ivIconUser;
 
+    private String sex;
+
+    private SelectSexDialog selectSexDialog;
+
+    private List<Uri> mSelected;
 
     @Override
     protected int getLayoutResId() {
@@ -112,14 +130,17 @@ public class UserCenterFragment extends BaseFragment implements View.OnClickList
         Glide.with(getContext()).load(userLogin.getHeadImg()).into(ivIconUser);
 
         tvNameUser.setText(userLogin.getName());
-        tvSexUser.setText(userLogin.getSex());
         tvCompayUser.setText(userLogin.getCompanyName());
         tvCompayTaxFileNumberUser.setText(userLogin.getInvoiceNumber());
         tvMobilePhoneUser.setText(userLogin.getCellPhone());
         tvPhoneUser.setText(userLogin.getLandLine());
         tvEmailUser.setText(userLogin.getEmail());
-//        tvWebSiteUser.setText(userLogin.getDealerId());
+        tvWebSiteUser.setText(userLogin.getCompanyUrl());
         tvCompayAdressUser.setText(userLogin.getAddress());
+
+        if (userLogin.getSex() != null) {
+            tvSexUser.setText(userLogin.getSex().equals("1") ? "男" : "女");
+        }
 
     }
 
@@ -130,14 +151,19 @@ public class UserCenterFragment extends BaseFragment implements View.OnClickList
                 intent2Activity(UserPswActivity.class);
                 break;
             case R.id.viewSexUser:
-                SelectSexDialog selectSexDialog = new SelectSexDialog(getContext());
+                selectSexDialog = new SelectSexDialog(getContext());
+                selectSexDialog.setListener(new SelectSexDialog.OnSelectSexDialogListener() {
+                    @Override
+                    public void onSelectSexDialog(String sex) {
+                        UserCenterFragment.this.sex = sex;
+                        ApiServiceImp.editAccountInfo(UserCenterFragment.this, null, null, null, null, null, null, sex, null, null);
+                    }
+                });
                 selectSexDialog.show();
                 break;
             case R.id.viewIconUser:
 //                SelectPicWayDialog selectPicWayDialog = new SelectPicWayDialog(getContext());
 //                selectPicWayDialog.show();
-
-
                 break;
             case R.id.viewNameUser:
                 intent2Activity(UserNameActivity.class);
@@ -168,6 +194,16 @@ public class UserCenterFragment extends BaseFragment implements View.OnClickList
                 intent2ActivityWithFinish(LoginActivity.class);
                 break;
         }
+    }
+
+    @Override
+    public void postEditAccountInfResult() {
+        ToastUtil.show("修改性别成功");
+
+        selectSexDialog.dismiss();
+
+        UserCache.getIns().getUser().setSex(sex);
+        initData();
     }
 
 }

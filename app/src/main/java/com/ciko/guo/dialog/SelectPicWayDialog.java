@@ -4,11 +4,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.ciko.guo.R;
-import com.imnjh.imagepicker.SImagePicker;
 
 /**
  * 创建时间: 2018/3/20 下午3:49

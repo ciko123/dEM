@@ -5,6 +5,7 @@ import com.ciko.guo.bean.Device;
 import com.ciko.guo.bean.DeviceDetial;
 import com.ciko.guo.bean.HttpResult;
 import com.ciko.guo.bean.Message;
+import com.ciko.guo.bean.Order;
 import com.ciko.guo.bean.Page;
 import com.ciko.guo.bean.User;
 import com.ciko.guo.bean.UserLogin;
@@ -29,6 +30,20 @@ public interface ApiService {
     Observable<HttpResult<UserLogin>> login(@Field("account") String account, @Field("password") String password);
 
     /**
+     * 注册
+     */
+    @FormUrlEncoded
+    @POST(Url.ADD_USER)
+    Observable<HttpResult<String>> addUser(@Field("companyName") String companyName, @Field("account") String account, @Field("password") String password, @Field("cellphone") String cellphone);
+
+    /**
+     * 修改密码
+     */
+    @FormUrlEncoded
+    @POST(Url.MOD_PASSWORD)
+    Observable<HttpResult<String>> modPassword(@Field("oldPassword") String oldPassword, @Field("newPassword") String newPassword, @Field("confirmPassword") String confirmPassword);
+
+    /**
      * 查询个人信息
      */
     @FormUrlEncoded
@@ -50,7 +65,7 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST(Url.EDIT_ACCOUNT_INFO)
-    Observable<HttpResult<String>> editAccountInfo(@Field("id") int id, @Field("password") String password, @Field("cellPhone") String cellPhone, @Field("account") String account, @Field("address") String address, @Field("email") String email, @Field("landLine") String landLine, @Field("invoiceNumber") String invoiceNumber, @Field("sex") String sex);
+    Observable<HttpResult<String>> editAccountInfo(@Field("id") int id, @Field("password") String password, @Field("cellPhone") String cellPhone, @Field("account") String account, @Field("address") String address, @Field("email") String email, @Field("landLine") String landLine, @Field("invoiceNumber") String invoiceNumber, @Field("sex") String sex, @Field("companyUrl") String companyUrl, @Field("headImg") String headImg);
 
     /**
      * 添加消息
@@ -77,7 +92,7 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST(Url.QRY_MSG_LIST)
-    Observable<HttpResult<Page<Message>>> qryMsgList(@Field("userId") Integer userId, @Field("title") String title, @Field("status") String status, @Field("yema") Integer yema, @Field("length") Integer length);
+    Observable<HttpResult<Page<Message>>> qryMsgList(@Field("userId") Integer userId, @Field("msgType") Integer msgType, @Field("title") String title, @Field("status") String status, @Field("yema") Integer yema, @Field("length") Integer length);
 
     /**
      * 查询设备列表
@@ -115,14 +130,14 @@ public interface ApiService {
     Observable<HttpResult<DeviceDetial>> getDeviceInfo(@Field("id") Integer id);
 
     /**
-     * 设备详情
+     * 单号查询
      *
-     * @param id 设备id
+     * @param orderNo 单号
      * @return
      */
     @FormUrlEncoded
-    @POST(Url.GET_DEVICE_INFO)
-    Observable<HttpResult<DeviceDetial>> qryOrderObject(@Field("orderNo") String orderNo);
+    @POST(Url.QRY_ORDER_OBJECT)
+    Observable<HttpResult<Order>> qryOrderObject(@Field("orderNo") String orderNo);
 
 
 }

@@ -33,7 +33,7 @@ import java.util.List;
  *
  * @author 木棉
  */
-public class HomeFragment extends BaseFragment implements View.OnClickListener, IDriverListView, OnRefreshListener, OnLoadMoreListener {
+public class HomeFragment extends BaseFragment implements View.OnClickListener, IDriverListView, OnRefreshListener {
 
     private View viewWarnInfoHome;
     private View viewServicTipHome;
@@ -83,8 +83,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         lvDeviceListHome.setAdapter(deviceListAdapter);
 
         rlDeviceListHome.setOnRefreshListener(this);
-        rlDeviceListHome.setOnLoadMoreListener(this);
-
 
         ApiServiceImp.qryDeviceList(this, "y", 1, 1000, null);
     }
@@ -124,11 +122,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         ApiServiceImp.qryDeviceList(this, "y", 1, 1000, null);
     }
 
-    @Override
-    public void onLoadMore(RefreshLayout refreshLayout) {
-        rlDeviceListHome.finishLoadMore(1000);
-    }
-
     @Subscribe(
             thread = EventThread.MAIN_THREAD,
             tags = {
@@ -141,4 +134,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         getActivity().startActivity(intent);
     }
 
+    @Override
+    public void postFail() {
+        rlDeviceListHome.finishRefresh();
+    }
 }

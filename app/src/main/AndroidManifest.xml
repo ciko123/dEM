@@ -22,8 +22,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activity.HomeActivity"
+            android:windowSoftInputMode="adjustNothing" />
+
         <activity android:name=".activity.RegisterSuccessActivity" />
-        <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.UserNameActivity" />
         <activity android:name=".activity.MobilePhoneActivity" />
         <activity android:name=".activity.PhoneActivity" />
@@ -42,6 +45,7 @@
         <activity android:name=".activity.EmailActivity" />
         <activity android:name=".activity.LookMessageActivity" />
         <activity android:name=".activity.UserPswActivity" />
+        <activity android:name=".activity.ChatDetailActivity" />
 
     </application>
 
