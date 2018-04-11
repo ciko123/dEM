@@ -112,7 +112,6 @@
                         android:text="123456"
                         />
 
-
                     <Button
                         android:id="@+id/btnLogin"
                         style="?android:attr/borderlessButtonStyle"

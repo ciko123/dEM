@@ -9,6 +9,9 @@ import com.ciko.guo.bean.Order;
 import com.ciko.guo.bean.Page;
 import com.ciko.guo.bean.User;
 import com.ciko.guo.bean.UserLogin;
+import com.ciko.guo.bean.WarmInfo;
+
+import java.util.List;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -93,6 +96,12 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(Url.QRY_MSG_LIST)
     Observable<HttpResult<Page<Message>>> qryMsgList(@Field("userId") Integer userId, @Field("msgType") Integer msgType, @Field("title") String title, @Field("status") String status, @Field("yema") Integer yema, @Field("length") Integer length);
+
+    /**
+     * 设备警报
+     */
+    @POST(Url.GET_ALARM_RECORD_LIST)
+    Observable<HttpResult<List<WarmInfo>>> getAlarmRecordList();
 
     /**
      * 查询设备列表

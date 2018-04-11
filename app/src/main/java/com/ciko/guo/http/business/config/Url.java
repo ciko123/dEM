@@ -43,6 +43,11 @@ public interface Url {
     String QRY_MSG_LIST = "message/qryMsgList";
 
     /**
+     * 设备警报
+     */
+    String GET_ALARM_RECORD_LIST = "device/getAlarmRecordList";
+
+    /**
      * 查询设备列表
      */
     String QRY_DEVICE_LIST = "device/qryDeviceList";

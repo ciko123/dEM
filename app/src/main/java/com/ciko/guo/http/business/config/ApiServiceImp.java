@@ -9,12 +9,14 @@ import com.ciko.guo.bean.Order;
 import com.ciko.guo.bean.Page;
 import com.ciko.guo.bean.User;
 import com.ciko.guo.bean.UserLogin;
+import com.ciko.guo.bean.WarmInfo;
 import com.ciko.guo.http.business.viewIInterface.IAccountInfo;
 import com.ciko.guo.http.business.viewIInterface.IAddMsgInfoView;
 import com.ciko.guo.http.business.viewIInterface.IDeviceDetial;
 import com.ciko.guo.http.business.viewIInterface.IDriverListView;
 import com.ciko.guo.http.business.viewIInterface.IEditAccountInfoView;
 import com.ciko.guo.http.business.viewIInterface.IEditDeviceView;
+import com.ciko.guo.http.business.viewIInterface.IGetAlarmRecordListView;
 import com.ciko.guo.http.business.viewIInterface.ILoginView;
 import com.ciko.guo.http.business.viewIInterface.IModPasswordView;
 import com.ciko.guo.http.business.viewIInterface.IQryMsgListView;
@@ -23,6 +25,8 @@ import com.ciko.guo.http.business.viewIInterface.IRegisterView;
 import com.ciko.guo.http.core.HttpClient;
 import com.ciko.guo.http.core.ResponseBodyCallBack;
 import com.ciko.guo.utils.MD5Util;
+
+import java.util.List;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -304,6 +308,21 @@ public class ApiServiceImp {
                     }
                 });
 
+    }
+
+    public static void getAlarmRecordList(final IGetAlarmRecordListView view) {
+        HttpClient.getIns()
+                .service(ApiService.class)
+                .getAlarmRecordList()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())//最后在主线程中执行
+                .subscribe(new ResponseBodyCallBack<List<WarmInfo>>() {
+                    @Override
+                    protected void success(HttpResult<List<WarmInfo>> result) {
+                        view.postAlarmRecordListResult(result.getReturnObject());
+                    }
+                });
     }
 
 

@@ -7,8 +7,12 @@ import com.ciko.guo.adapter.WarmInfolistAdapter;
 import com.ciko.guo.base.TitleActivity;
 import com.ciko.guo.bean.Message;
 import com.ciko.guo.bean.Page;
+import com.ciko.guo.bean.WarmInfo;
 import com.ciko.guo.http.business.config.ApiServiceImp;
+import com.ciko.guo.http.business.viewIInterface.IGetAlarmRecordListView;
 import com.ciko.guo.http.business.viewIInterface.IQryMsgListView;
+
+import java.util.List;
 
 /**
  * 创建时间: 2018/3/19 上午3:14
@@ -16,7 +20,7 @@ import com.ciko.guo.http.business.viewIInterface.IQryMsgListView;
  *
  * @author 木棉
  */
-public class WarmInfoActivity extends TitleActivity implements IQryMsgListView{
+public class WarmInfoActivity extends TitleActivity implements IGetAlarmRecordListView {
 
     private ListView lvWarmInfo;
 
@@ -49,19 +53,13 @@ public class WarmInfoActivity extends TitleActivity implements IQryMsgListView{
         adapter = new WarmInfolistAdapter(getContext(), R.layout.item_warm_info);
         lvWarmInfo.setAdapter(adapter);
 
-//        ApiServiceImp.qryMsgList(this,);
-
-    }
-
-
-    @Override
-    public void postIQryMsgListResult(Page<Message> data) {
+        ApiServiceImp.getAlarmRecordList(this);
 
     }
 
     @Override
-    public void postFail() {
-
+    public void postAlarmRecordListResult(List<WarmInfo> warmInfoList) {
+        adapter.reLoadData(warmInfoList);
     }
 
 }
